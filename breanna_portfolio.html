@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Breanna May Cabusao</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Georgia, serif; background: #FAFAF4; color: #2A2418; }
+
+    nav {
+      background: #FAFAF4;
+      border-bottom: 0.5px solid #d4cfc3;
+      padding: 16px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-name { font-family: 'Playfair Display', Georgia, serif; font-size: 17px; font-weight: 700; color: #2A2418; letter-spacing: 0.02em; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-link { font-family: 'Courier New', monospace; font-size: 11px; letter-spacing: 0.12em; color: #6b6357; text-transform: uppercase; text-decoration: none; }
+    .nav-link:hover { color: #2A2418; }
+    .nav-cta { font-family: 'Courier New', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; background: #1A5C8A; color: #fff; padding: 8px 18px; border-radius: 2px; text-decoration: none; }
+    .nav-cta:hover { background: #154e78; }
+
+    #work { padding: 72px 48px 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; max-width: 1100px; margin: 0 auto; }
+    .hero-coords { font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 0.14em; color: #8b8070; text-transform: uppercase; margin-bottom: 20px; }
+    .hero-headline { font-family: 'Playfair Display', Georgia, serif; font-size: 36px; font-weight: 700; line-height: 1.25; color: #2A2418; margin-bottom: 20px; }
+    .hero-sub { font-size: 14px; line-height: 1.75; color: #5a5046; margin-bottom: 26px; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border: 0.5px solid #c0b8a8; color: #6b6357; border-radius: 2px; background: #F2EDE0; }
+    .tag-accent { border-color: #C9962A; color: #8a6418; background: #fdf6e8; }
+
+    .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .photo-cell { border-radius: 4px; aspect-ratio: 1; overflow: hidden; background: #e8e2d4; display: flex; align-items: center; justify-content: center; position: relative; }
+    .photo-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .photo-cell-label { font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 0.1em; color: #8b8070; text-transform: uppercase; text-align: center; padding: 12px; position: absolute; }
+    .photo-cell-a { background: #d6cfc0; }
+    .photo-cell-b { background: #ddd8cc; }
+    .photo-cell-c { background: #e2ddd2; }
+    .photo-cell-d { background: #cfc8b8; }
+
+    .spotlight { background: #1A5C8A; padding: 64px 48px; }
+    .spotlight-inner { max-width: 760px; margin: 0 auto; }
+    .eyebrow { font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 14px; }
+    .eyebrow-light { color: #9ec4de; }
+    .eyebrow-dark { color: #8b8070; }
+    .spotlight-headline { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .spotlight-origin { font-size: 14px; color: #b8d4e8; line-height: 1.65; margin-bottom: 20px; font-style: italic; }
+    .spotlight-body { font-size: 14px; color: #d0e4f0; line-height: 1.8; margin-bottom: 28px; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill { font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 13px; border: 0.5px solid #4a8ab5; color: #9ec4de; border-radius: 2px; }
+
+    #events { padding: 64px 48px; background: #FAFAF4; }
+    .events-inner { max-width: 1100px; margin: 0 auto; }
+    .section-head { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 700; color: #2A2418; margin-bottom: 8px; }
+    .section-sub { font-size: 14px; color: #6b6357; margin-bottom: 32px; line-height: 1.65; max-width: 600px; }
+    .events-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .event-card { background: #F2EDE0; border: 0.5px solid #d4cfc3; border-radius: 4px; padding: 22px 24px; }
+    .event-title { font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: 700; color: #2A2418; margin-bottom: 8px; }
+    .event-meta { font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #C9962A; margin-bottom: 10px; }
+    .event-body { font-size: 13px; color: #5a5046; line-height: 1.7; }
+
+    .film-strip { background: #2A2418; padding: 48px; }
+    .film-strip-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: flex-start; gap: 40px; width: 100%; }
+    .film-text { flex: 1; }
+    .film-eyebrow { font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #6b6357; margin-bottom: 14px; }
+    .film-headline { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: #F2EDE0; margin-bottom: 12px; }
+    .film-body { font-size: 13px; color: #a8998a; line-height: 1.8; }
+    .film-frames { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+    .frame { width: 52px; height: 66px; background: #3a3028; border: 0.5px solid #4a4038; border-radius: 2px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 5px 0; }
+    .frame-inner { width: 42px; height: 34px; background: #4a4038; border-radius: 1px; overflow: hidden; }
+    .frame-inner img { width: 100%; height: 100%; object-fit: cover; }
+    .frame-hole { width: 6px; height: 3px; background: #2A2418; border-radius: 1px; }
+
+    .recruiting { background: #F2EDE0; padding: 64px 48px; }
+    .rec-inner { max-width: 1100px; margin: 0 auto; }
+    .rec-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px; margin-top: 28px; }
+    .rec-main { background: #FAFAF4; border: 0.5px solid #d4cfc3; border-radius: 4px; padding: 26px 28px; font-size: 14px; color: #5a5046; line-height: 1.8; }
+    .rec-stat-col { display: flex; flex-direction: column; gap: 14px; }
+    .rec-stat { background: #FAFAF4; border: 0.5px solid #d4cfc3; border-radius: 4px; padding: 16px 20px; }
+    .stat-num { font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700; color: #1A5C8A; }
+    .stat-label { font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #8b8070; margin-top: 3px; }
+    .rec-honest { background: #1A5C8A; border-radius: 4px; padding: 20px 24px; margin-top: 16px; font-size: 13px; color: #c8dcea; line-height: 1.75; font-style: italic; }
+
+    .always { padding: 56px 48px; background: #FAFAF4; }
+    .always-inner { max-width: 1100px; margin: 0 auto; }
+    .always-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 28px; }
+    .always-card { background: #F2EDE0; border: 0.5px solid #d4cfc3; border-radius: 4px; padding: 20px; }
+    .always-verb { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 700; color: #1A5C8A; margin-bottom: 8px; }
+    .always-desc { font-size: 12px; color: #6b6357; line-height: 1.65; }
+
+    #about { padding: 56px 48px; background: #F2EDE0; }
+    .exp-inner { max-width: 1100px; margin: 0 auto; }
+    .exp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 28px; }
+    .exp-card { background: #FAFAF4; border: 0.5px solid #d4cfc3; border-radius: 4px; padding: 18px 20px; }
+    .exp-role { font-size: 14px; font-weight: 500; color: #2A2418; margin-bottom: 4px; }
+    .exp-org { font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 0.09em; color: #8b8070; text-transform: uppercase; margin-bottom: 10px; }
+    .exp-detail { font-size: 12px; color: #6b6357; line-height: 1.65; }
+    .exp-cta { background: #1A5C8A; border-radius: 4px; padding: 20px; display: flex; flex-direction: column; justify-content: center; }
+    .exp-cta-text { font-family: 'Playfair Display', Georgia, serif; font-size: 15px; font-weight: 700; color: #fff; line-height: 1.4; }
+    .exp-cta-sub { font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #9ec4de; margin-top: 8px; }
+
+    footer { background: #1A5C8A; padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-name { font-family: 'Playfair Display', Georgia, serif; font-size: 17px; font-weight: 700; color: #fff; }
+    .footer-path { font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #9ec4de; margin-top: 5px; }
+    .footer-email { font-family: 'Courier New', monospace; font-size: 12px; color: #b8d4e8; letter-spacing: 0.05em; text-decoration: none; }
+    .footer-email:hover { color: #fff; }
+
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      #work { grid-template-columns: 1fr; padding: 40px 20px; gap: 32px; }
+      .hero-headline { font-size: 28px; }
+      .spotlight { padding: 40px 20px; }
+      #events { padding: 40px 20px; }
+      .events-grid { grid-template-columns: 1fr; }
+      .film-strip { padding: 36px 20px; }
+      .film-strip-inner { flex-direction: column; }
+      .recruiting { padding: 40px 20px; }
+      .rec-grid { grid-template-columns: 1fr; }
+      .always { padding: 40px 20px; }
+      .always-row { grid-template-columns: 1fr 1fr; }
+      #about { padding: 40px 20px; }
+      .exp-grid { grid-template-columns: 1fr 1fr; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-name">Breanna May Cabusao</div>
+    <div class="nav-links">
+      <a href="#work" class="nav-link">Work</a>
+      <a href="#events" class="nav-link">Events</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="mailto:breannacabusao@berkeley.edu" class="nav-cta">Say hi →</a>
+    </div>
+  </nav>
+
+  <section id="work">
+    <div>
+      <div class="hero-coords">32.7157° N · 122.2727° W · San Diego → Berkeley → NYC</div>
+      <h1 class="hero-headline">I bring people together.<br>Then I make sure every<br>detail is right.</h1>
+      <p class="hero-sub">Chief of Staff candidate @ 222. I've been obsessed with third spaces long before I found the word for it — the in-between moments where something real happens.</p>
+      <div class="hero-tags">
+        <span class="tag">Event curation</span>
+        <span class="tag">Community building</span>
+        <span class="tag">People recruiting</span>
+        <span class="tag">End-to-end ownership</span>
+        <span class="tag tag-accent">Salsa dancer</span>
+        <span class="tag tag-accent">Film photographer</span>
+      </div>
+    </div>
+    <div class="photo-grid">
+      <!-- TO ADD PHOTOS: replace the comment inside each .photo-cell with:
+           <img src="images/your-photo-name.jpg" alt="Description" />
+           Make sure your images are in a folder called "images" next to this HTML file -->
+      <div class="photo-cell photo-cell-a">
+        <span class="photo-cell-label">Founder's Day<br>2025</span>
+      </div>
+      <div class="photo-cell photo-cell-b">
+        <span class="photo-cell-label">Friendsgiving<br>2025</span>
+      </div>
+      <div class="photo-cell photo-cell-c">
+        <span class="photo-cell-label">Parents<br>Brunch</span>
+      </div>
+      <div class="photo-cell photo-cell-d">
+        <span class="photo-cell-label">Sproul Plaza</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="spotlight">
+    <div class="spotlight-inner">
+      <div class="eyebrow eyebrow-light">Origin story · Fall 2025</div>
+      <h2 class="spotlight-headline">Designing Third Spaces</h2>
+      <p class="spotlight-origin">"I was building this project in class when I found 222. It wasn't a coincidence — it was confirmation."</p>
+      <p class="spotlight-body">As PM, I led a team through the full HCD process: user interviews, ethnographic research, affinity mapping, lo-fi and hi-fi prototyping. The research question was simple — why do people feel lonely even when they're surrounded by people? The answer pointed directly to the collapse of third spaces. I was deep in that problem when 222 showed up in my feed. I've been paying attention ever since.</p>
+      <div class="pill-row">
+        <span class="pill">Product management</span>
+        <span class="pill">User interviews</span>
+        <span class="pill">Ethnographic research</span>
+        <span class="pill">Affinity mapping</span>
+        <span class="pill">Prototype</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="events">
+    <div class="events-inner">
+      <div class="eyebrow eyebrow-dark">What I've built</div>
+      <h2 class="section-head">Events aren't logistics. They're choreography.</h2>
+      <p class="section-sub">I show up early, stay late, and notice the thing nobody else noticed needed fixing. Every event below ran — no excuses, no shortcuts.</p>
+      <div class="events-grid">
+        <div class="event-card">
+          <div class="event-meta">Founder's Day · 2025 · $1,600 budget</div>
+          <div class="event-title">20+ Volunteers. Zero Chaos.</div>
+          <p class="event-body">Coordinated volunteers, managed vendor relationships, handled the moment things went sideways — and they always do. Left the venue cleaner than we found it.</p>
+        </div>
+        <div class="event-card">
+          <div class="event-meta">Parents Brunch · Homecoming 2024</div>
+          <div class="event-title">Permits, Vendors, Catering. All of it.</div>
+          <p class="event-body">End-to-end production for a high-visibility event with real stakeholders. Navigated university permitting, coordinated with catering, ran day-of ops.</p>
+        </div>
+        <div class="event-card">
+          <div class="event-meta">Mental Health Week · $200 · Campus-wide</div>
+          <div class="event-title">Chalk Art on Sproul Plaza</div>
+          <p class="event-body">Small budget, campus-wide impact. Proof that the detail matters more than the dollar amount — you just have to care enough to notice it.</p>
+        </div>
+        <div class="event-card" style="border-color: #C9962A;">
+          <div class="event-meta" style="color: #8a6418;">Friendsgiving · Personal · 2025</div>
+          <div class="event-title">My love language is a good table.</div>
+          <p class="event-body">I host because I can't not. The candles, the name cards, the playlist that shifts when dinner ends — that's not overthinking, that's care made visible.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="film-strip">
+    <div class="film-strip-inner">
+      <div class="film-text">
+        <div class="film-eyebrow">Always noticing</div>
+        <h3 class="film-headline">Serendipity is why I shoot on film.</h3>
+        <p class="film-body">I picked up a film camera because I wanted to slow down — to actually see what I was looking at before I pressed the shutter. That's what drew me to third spaces academically. And it's what drew me to 222. The small moment, the accidental conversation, the table that becomes a tradition — I've been documenting that before I had a name for it.</p>
+      </div>
+      <div class="film-frames">
+        <div class="frame">
+          <div class="frame-hole"></div>
+          <div class="frame-inner"></div>
+          <div class="frame-hole"></div>
+        </div>
+        <div class="frame">
+          <div class="frame-hole"></div>
+          <div class="frame-inner"></div>
+          <div class="frame-hole"></div>
+        </div>
+        <div class="frame">
+          <div class="frame-hole"></div>
+          <div class="frame-inner"></div>
+          <div class="frame-hole"></div>
+        </div>
+        <div class="frame" style="opacity: 0.5;">
+          <div class="frame-hole"></div>
+          <div class="frame-inner"></div>
+          <div class="frame-hole"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="recruiting">
+    <div class="rec-inner">
+      <div class="eyebrow eyebrow-dark">On recruiting</div>
+      <h2 class="section-head">I've evaluated hundreds of people under pressure.</h2>
+      <div class="rec-grid">
+        <div>
+          <div class="rec-main">
+            Greek recruitment at UC Berkeley runs in cycles — back-to-back evaluations, first impressions that count, a score card for every interaction, and a decision at the end that shapes the chapter for years. I led two full cycles (2024, 2025) as exec board lead. I know what it feels like to walk into a room of strangers, read the energy in thirty seconds, and know exactly who belongs.
+          </div>
+          <div class="rec-honest">
+            "I haven't worked at Airbnb or Uber. What I have is a track record of walking into rooms full of strangers and leaving with exactly who we needed."
+          </div>
+        </div>
+        <div class="rec-stat-col">
+          <div class="rec-stat">
+            <div class="stat-num">2</div>
+            <div class="stat-label">UC Berkeley recruitment cycles led</div>
+          </div>
+          <div class="rec-stat">
+            <div class="stat-num">300+</div>
+            <div class="stat-label">Students in LS 22 course I helped run</div>
+          </div>
+          <div class="rec-stat">
+            <div class="stat-num">30+</div>
+            <div class="stat-label">Staff supervised at RSF</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="always">
+    <div class="always-inner">
+      <div class="eyebrow eyebrow-dark">Always</div>
+      <div class="always-row">
+        <div class="always-card">
+          <div class="always-verb">Capturing</div>
+          <div class="always-desc">Film photography. The frame you commit to before you can undo it.</div>
+        </div>
+        <div class="always-card">
+          <div class="always-verb">Moving</div>
+          <div class="always-desc">Salsa, swing, Strava. The body knows things the mind catches up to later.</div>
+        </div>
+        <div class="always-card">
+          <div class="always-verb">Curating</div>
+          <div class="always-desc">Playlists, tables, guest lists. The art is in what you leave out.</div>
+        </div>
+        <div class="always-card">
+          <div class="always-verb">Exploring</div>
+          <div class="always-desc">New cities, late sunsets, conversations that go longer than planned.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="exp-inner">
+      <div class="eyebrow eyebrow-dark">Experience</div>
+      <div class="exp-grid">
+        <div class="exp-card">
+          <div class="exp-role">Research Assistant</div>
+          <div class="exp-org">UC Berkeley CTL · 2024–2026</div>
+          <p class="exp-detail">Co-authored peer-reviewed publication. Sole student on faculty team. Presented at Berkeley 2025 AI Symposium.</p>
+        </div>
+        <div class="exp-card">
+          <div class="exp-role">Teaching Assistant, LS 22</div>
+          <div class="exp-org">UC Berkeley · Spring 2025–2026</div>
+          <p class="exp-detail">300+ student course. Ran ops, coordinated deliberative polling event, managed 15+ staff.</p>
+        </div>
+        <div class="exp-card">
+          <div class="exp-role">Data & AI Intern</div>
+          <div class="exp-org">CredibleMind · Summer 2025</div>
+          <p class="exp-detail">GCP, BigQuery, generative AI workflows. Production work, not sandbox.</p>
+        </div>
+        <div class="exp-card">
+          <div class="exp-role">Rec Ops Supervisor</div>
+          <div class="exp-org">UC Berkeley RSF · 2023–2026</div>
+          <p class="exp-detail">30+ staff. Daily ops, scheduling, first responder protocols.</p>
+        </div>
+        <div class="exp-card">
+          <div class="exp-role">Data Science + Cog Sci</div>
+          <div class="exp-org">UC Berkeley · Class of 2026</div>
+          <p class="exp-detail">Double major. SPOT Award recipient. RecWell Board of Governors, ASUC Mental Health Commission.</p>
+        </div>
+        <div class="exp-cta">
+          <div class="exp-cta-text">Looking for Chief of Staff @ 222</div>
+          <div class="exp-cta-sub">SoHo, NYC · Ready to move</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <div class="footer-name">Breanna May Cabusao</div>
+      <div class="footer-path">San Diego → Berkeley → NYC</div>
+    </div>
+    <a href="mailto:breannacabusao@berkeley.edu" class="footer-email">breannacabusao@berkeley.edu</a>
+  </footer>
+
+</body>
+</html>
