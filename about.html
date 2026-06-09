@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Breanna May Cabusao</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Georgia, serif; background: #E8E2D4; color: #2A2418; }
+
+    nav {
+      background: #E8E2D4; border-bottom: 2px solid #8AA080;
+      padding: 16px 48px; display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .nav-name { font-family: 'Playfair Display', Georgia, serif; font-size: 17px; font-weight: 700; color: #2A2418; letter-spacing: 0.02em; text-decoration: none; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-link { font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0.18em; color: #4a6b58; text-transform: uppercase; text-decoration: none; transition: color 0.2s; }
+    .nav-link:hover, .nav-link.active { color: #1A5C8A; }
+    .nav-cta { font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; background: #1A5C8A; color: #fff; padding: 9px 20px; border-radius: 2px; text-decoration: none; }
+    .nav-cta:hover { background: #154e78; }
+
+    /* HERO BIO */
+    .bio-hero {
+      max-width: 1100px; margin: 0 auto; padding: 72px 48px;
+      display: grid; grid-template-columns: 320px 1fr; gap: 64px; align-items: start;
+    }
+    .bio-photo { width: 100%; aspect-ratio: 3/4; border-radius: 4px; overflow: hidden; background: #8AA080; position: sticky; top: 80px; }
+    .bio-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .bio-photo-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; font-weight: 300; text-align: center; padding: 24px; }
+
+    .bio-content {}
+    .bio-eyebrow { font-family: 'Josefin Sans', sans-serif; font-size: 11px; font-weight: 300; letter-spacing: 0.22em; text-transform: uppercase; color: #8AA080; margin-bottom: 14px; }
+    .bio-headline { font-family: 'Playfair Display', Georgia, serif; font-size: 44px; font-weight: 700; color: #2A2418; line-height: 1.15; margin-bottom: 32px; }
+    .bio-headline em { font-style: italic; color: #1A5C8A; }
+    .bio-section { margin-bottom: 40px; }
+    .bio-section-label { font-family: 'Josefin Sans', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #2e5c3a; margin-bottom: 16px; border-bottom: 2px solid #2e5c3a; padding-bottom: 8px; }
+    .bio-body { font-size: 15px; color: #5a5046; line-height: 1.9; }
+    .bio-body p { margin-bottom: 18px; }
+    .bio-body p:last-child { margin-bottom: 0; }
+    .bio-body strong { color: #2A2418; font-weight: 600; }
+
+    /* TIMELINE */
+    .timeline { list-style: none; }
+    .timeline-item { display: flex; gap: 20px; padding: 16px 0; border-bottom: 0.5px solid #c4bfb2; }
+    .timeline-item:first-child { padding-top: 0; }
+    .timeline-item:last-child { border-bottom: none; }
+    .timeline-year { font-family: 'Courier New', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #2e5c3a; width: 70px; flex-shrink: 0; padding-top: 3px; }
+    .timeline-role { font-size: 14px; font-weight: 600; color: #2A2418; margin-bottom: 2px; }
+    .timeline-org { font-family: 'Josefin Sans', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #3a6b4a; margin-bottom: 6px; }
+    .timeline-detail { font-size: 13px; color: #3a3028; line-height: 1.65; }
+
+    /* SKILLS GRID */
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .skill-tag { font-family: 'Josefin Sans', sans-serif; font-size: 11px; font-weight: 300; letter-spacing: 0.12em; text-transform: uppercase; padding: 10px 14px; border: 1px solid #b8c8b4; color: #4a6b58; border-radius: 2px; background: #dde8d8; text-align: center; }
+    .skill-tag-navy { border-color: #1A5C8A; color: #1A5C8A; background: #d8e6f0; }
+
+    /* BEYOND */
+    .beyond-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .beyond-card { background: #f0ece2; border: 1px solid #b8c8b4; border-radius: 4px; padding: 20px; }
+    .beyond-label { font-family: 'Playfair Display', Georgia, serif; font-size: 17px; font-weight: 700; color: #1A5C8A; margin-bottom: 8px; }
+    .beyond-body { font-size: 13px; color: #5a5046; line-height: 1.7; }
+
+    /* CTA */
+    .bio-cta { background: #1A5C8A; border-radius: 4px; padding: 32px; margin-top: 40px; }
+    .bio-cta-head { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+    .bio-cta-body { font-size: 14px; color: #b8d4e8; line-height: 1.8; margin-bottom: 20px; }
+    .bio-cta-link { font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #fff; text-decoration: none; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); padding: 10px 22px; border-radius: 2px; display: inline-block; transition: background 0.2s; }
+    .bio-cta-link:hover { background: rgba(255,255,255,0.25); }
+
+    footer { background: #2A2418; padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-name { font-family: 'Playfair Display', Georgia, serif; font-size: 17px; font-weight: 700; color: #fff; }
+    .footer-path { font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #8AA080; margin-top: 5px; }
+    .footer-email { font-family: 'Josefin Sans', sans-serif; font-size: 13px; font-weight: 300; color: #b8d4e8; text-decoration: none; }
+    .footer-email:hover { color: #fff; }
+
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .bio-hero { grid-template-columns: 1fr; padding: 40px 20px; gap: 32px; }
+      .bio-photo { position: static; aspect-ratio: 1; }
+      .bio-headline { font-size: 32px; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .beyond-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="breanna_portfolio.html" class="nav-name">Breanna May Cabusao</a>
+    <div class="nav-links">
+      <a href="breanna_portfolio.html#work" class="nav-link">Work</a>
+      <a href="breanna_portfolio.html#events" class="nav-link">Events</a>
+      <a href="about.html" class="nav-link active">About</a>
+      <a href="connect.html" class="nav-cta">Say hi →</a>
+    </div>
+  </nav>
+
+  <div class="bio-hero">
+    <!-- PHOTO: replace the placeholder div contents with your photo -->
+    <div class="bio-photo">
+      <img src="images/breannapro.jpg" alt="Breanna Cabusao" style="width:100%;height:100%;object-fit:cover;display:block;" />
+    </div>
+
+    <div class="bio-content">
+      <div class="bio-eyebrow">About me</div>
+      <h1 class="bio-headline">Hi, I'm <em>Breanna.</em></h1>
+
+      <div class="bio-section">
+        <div class="bio-section-label">Who I am</div>
+        <div class="bio-body">
+          <p>I grew up in San Diego and spent four years finding my footing at UC Berkeley. Somewhere between research, jobs, club soccer, event planning, Greek life, a double major, and more side quests than I can count, I developed a habit of asking questions about everything.</p>
+          <p>That's what led me to study Data Science and Cognitive Science. I've always been fascinated by people. How do we think? Why do we behave the way we do? How do our relationships, environments, and experiences shape us? The more I learned, the more I realized that the questions I cared about most weren't just about data or technology. They were about humans.</p>
+          <p>Looking back, that curiosity has shaped almost everything I've done. Research, teaching, community building, event planning, and countless conversations with people whose lives look nothing like mine. More than anything, I'm someone who loves learning, asking questions, and following ideas wherever they lead.</p>
+        </div>
+      </div>
+
+      <div class="bio-section">
+        <div class="bio-section-label">How I work</div>
+        <div class="bio-body">
+          <p>I've always been happiest when my calendar is a little too full.</p>
+          <p>At Berkeley, that looked like balancing three jobs, research, Greek life, a double major, and whatever side quest I had accidentally signed myself up for that week (shoutout to spontaneously summiting Half Dome in the dark). I showed up for 6:45 a.m. opening shifts, spent late nights working on projects, and somehow convinced myself this was a reasonable way to live.</p>
+          <p>The truth is, I love building things with people. I thrive in fast-moving environments, enjoy solving problems as they come up, and like being the person others can count on when something needs to get done. I care about details, not because I'm a perfectionist (okay, maybe a little), but because details are what turn good experiences into memorable ones.</p>
+        </div>
+        <!-- Photo moment strip: two square crops + tall Half Dome -->
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:24px;align-items:start;">
+          <div>
+            <div style="border-radius:4px;overflow:hidden;aspect-ratio:4/3;background:#dde8d8;">
+              <img src="images/breannapodcast.jpg" alt="Breanna filming for YouTube — antiracist pedagogy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+            </div>
+            <div style="font-family:'Josefin Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#3a6b4a;margin-top:7px;">Filmed for YouTube · Antiracist teaching pedagogy</div>
+          </div>
+          <div>
+            <div style="border-radius:4px;overflow:hidden;aspect-ratio:4/3;background:#dde8d8;">
+              <img src="images/breannaspeaking.jpg" alt="Breanna speaking at conference" style="width:100%;height:100%;object-fit:cover;display:block;" />
+            </div>
+            <div style="font-family:'Josefin Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#3a6b4a;margin-top:7px;">Speaking at conference · UC Berkeley 2025</div>
+          </div>
+          <div>
+            <div style="border-radius:4px;overflow:hidden;aspect-ratio:4/3;background:#c8d0c0;">
+              <img src="images/halfdome.jpg" alt="Half Dome summit" style="width:100%;height:100%;object-fit:cover;display:block;" />
+            </div>
+            <div style="font-family:'Josefin Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#3a6b4a;margin-top:7px;">Half Dome · Summited in the dark</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bio-section" id="experience">
+        <div class="bio-section-label">Experience</div>
+        <ul class="timeline">
+          <li class="timeline-item">
+            <div class="timeline-year">2024–2026</div>
+            <div>
+              <div class="timeline-role">Research & Program Assistant</div>
+              <div class="timeline-org">UC Berkeley Center for Teaching & Learning</div>
+              <div class="timeline-detail">Co-authored peer-reviewed publication in Journal on Excellence in College Teaching. Sole student on faculty team. Presented at Berkeley 2025 AI Symposium. SPOT Award recipient.</div>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-year">2025–2026</div>
+            <div>
+              <div class="timeline-role">Teaching Assistant, LS 22</div>
+              <div class="timeline-org">UC Berkeley</div>
+              <div class="timeline-detail">300+ student course on sense-making and science. Ran daily ops, coordinated deliberative polling event, managed 15+ staff.</div>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-year">Summer 2025</div>
+            <div>
+              <div class="timeline-role">Data & AI Intern</div>
+              <div class="timeline-org">CredibleMind</div>
+              <div class="timeline-detail">Built generative AI workflows and translated business needs into actionable tools.</div>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-year">2023–2026</div>
+            <div>
+              <div class="timeline-role">Recreation Operations Supervisor</div>
+              <div class="timeline-org">UC Berkeley RSF</div>
+              <div class="timeline-detail">30+ staff. Managed daily operations, scheduling, and first responder protocols at one of the largest campus recreation facilities in the country.</div>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-year">2026</div>
+            <div>
+              <div class="timeline-role">B.A. Data Science + Cognitive Science</div>
+              <div class="timeline-org">UC Berkeley · Class of 2026</div>
+              <div class="timeline-detail">Double major. RecWell Board of Governors, ASUC Mental Health Commission, Student Affairs Advisory Council.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bio-section">
+        <div class="bio-section-label">What I bring</div>
+        <div class="skills-grid">
+          <span class="skill-tag">Event production</span>
+          <span class="skill-tag">Community building</span>
+          <span class="skill-tag skill-tag-navy">People & recruiting</span>
+          <span class="skill-tag">Operations</span>
+          <span class="skill-tag">Research & synthesis</span>
+          <span class="skill-tag skill-tag-navy">Project management</span>
+          <span class="skill-tag">Human-centered design</span>
+          <span class="skill-tag">Data analysis</span>
+          <span class="skill-tag skill-tag-navy">End-to-end ownership</span>
+        </div>
+      </div>
+
+      <div class="bio-section">
+        <div class="bio-section-label">Beyond work</div>
+        <div class="beyond-grid">
+          <div class="beyond-card">
+            <div class="beyond-label">Salsa & swing</div>
+            <div class="beyond-body">My favorite flow state. Every dance is a conversation with someone you've just met, spoken entirely through movement.</div>
+          </div>
+          <div class="beyond-card">
+            <div class="beyond-label">Film photography</div>
+            <div class="beyond-body">No previews, no retakes, no perfect edits. Just real people, real moments, and the beauty of imperfections you'd miss if you weren't paying attention. <a href="film.html" style="color:#1A5C8A;">See my portfolio →</a></div>
+          </div>
+          <div class="beyond-card">
+            <div class="beyond-label">Hiking & running</div>
+            <div class="beyond-body">Strava saw it first. Whether it's a morning run or an 18-mile hike, I love the feeling of earning the view. The day before graduation, I completed San Francisco's Crosstown Trail. Next up: a marathon.</div>
+          </div>
+          <div class="beyond-card">
+            <div class="beyond-label">Hosting</div>
+            <div class="beyond-body">Friendsgiving, dinner parties, impromptu game nights. Creating a space where people feel seen, heard, and valued.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bio-cta">
+        <div class="bio-cta-head">I'm looking to be the next Chief of Staff @ 222.</div>
+        <div class="bio-cta-body">I found 222 while building a class project on third spaces. I was trying to solve the same problem you're solving. That's not a coincidence — it's a starting point. I want to learn and grow and build something that matters alongside the people already doing it.</div>
+        <a href="connect.html" class="bio-cta-link">Say hi →</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      <div class="footer-name">Breanna May Cabusao</div>
+      <div class="footer-path">San Diego → Berkeley → NYC</div>
+    </div>
+    <a href="mailto:breannacabusao@berkeley.edu" class="footer-email">breannacabusao@berkeley.edu</a>
+  </footer>
+
+</body>
+</html>

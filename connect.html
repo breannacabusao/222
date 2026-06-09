@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Say hi — Breanna May Cabusao</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Georgia, serif; background: #E8E2D4; color: #2A2418; min-height: 100vh; display: flex; flex-direction: column; }
+
+    nav {
+      background: #E8E2D4; border-bottom: 2px solid #8AA080;
+      padding: 16px 48px; display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .nav-name { font-family: 'Playfair Display', Georgia, serif; font-size: 17px; font-weight: 700; color: #2A2418; letter-spacing: 0.02em; text-decoration: none; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-link { font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0.18em; color: #4a6b58; text-transform: uppercase; text-decoration: none; transition: color 0.2s; }
+    .nav-link:hover, .nav-link.active { color: #1A5C8A; }
+    .nav-cta { font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; background: #1A5C8A; color: #fff; padding: 9px 20px; border-radius: 2px; text-decoration: none; }
+    .nav-cta:hover { background: #154e78; }
+
+    /* PAGE LAYOUT */
+    .connect-page {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px;
+    }
+
+    .connect-page-aura {
+      position: absolute;
+      width: 560px; height: 560px;
+      background: radial-gradient(circle, rgba(26,92,138,0.20) 0%, rgba(138,160,128,0.18) 40%, transparent 70%);
+      filter: blur(52px);
+      border-radius: 50%;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 0;
+      animation: auraBreath 5s ease-in-out infinite;
+    }
+    @keyframes auraBreath {
+      0%,100% { transform: translate(-50%,-50%) scale(1);   opacity: 0.85; }
+      50%      { transform: translate(-50%,-50%) scale(1.12); opacity: 1; }
+    }
+
+    .connect-card {
+      background: #f5f0e8;
+      border-radius: 8px;
+      padding: 52px 60px;
+      max-width: 560px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* subtle inner blobs */
+    .connect-card::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -60px;
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, rgba(26,92,138,0.14) 0%, transparent 70%);
+      filter: blur(32px);
+      pointer-events: none;
+    }
+    .connect-card::after {
+      content: '';
+      position: absolute;
+      bottom: -30px; left: -40px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(138,160,128,0.16) 0%, transparent 70%);
+      filter: blur(28px);
+      pointer-events: none;
+    }
+
+    .connect-eyebrow {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #8AA080;
+      margin-bottom: 20px;
+    }
+
+    .connect-headline {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 44px;
+      font-weight: 700;
+      color: #2A2418;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .connect-headline em {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      color: #192418;
+      font-size: 44px;
+    }
+
+    .connect-body {
+      font-family: Georgia, serif;
+      font-size: 16px;
+      font-weight: 400;
+      font-style: italic;
+      color: #6a5e50;
+      line-height: 1.75;
+      margin-bottom: 36px;
+      margin-top: 18px;
+    }
+
+    .connect-body strong { color: #2A2418; }
+
+    .connect-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .connect-btn {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 16px 36px;
+      border-radius: 4px;
+      display: inline-block;
+      transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+    }
+
+    .connect-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    .connect-btn-email {
+      background: #2A2418;
+      color: #E8E2D4;
+    }
+
+    .connect-btn-linkedin {
+      background: #1A5C8A;
+      color: #fff;
+    }
+
+    .connect-btn-icon {
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .connect-note {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: #8AA080;
+      margin-bottom: 6px;
+    }
+
+    .connect-email-display {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: #5a5046;
+    }
+
+    .connect-divider {
+      width: 48px;
+      height: 1px;
+      background: #c4bfb2;
+      margin: 36px 0;
+    }
+
+    .connect-back {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #192418;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s, color 0.2s;
+    }
+    .connect-back:hover { gap: 10px; color: #8AA080; }
+
+    /* 222 note at bottom */
+    .connect-222 {
+      position: absolute;
+      bottom: 28px;
+      right: 36px;
+      font-family: 'Courier New', monospace;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      color: rgba(138,160,128,0.35);
+      text-transform: uppercase;
+    }
+
+    footer {
+      background: #192418;
+      padding: 24px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-copy { font-family: 'Josefin Sans', sans-serif; font-size: 11px; font-weight: 300; letter-spacing: 0.12em; color: #8AA080; }
+    .footer-love { font-family: 'Josefin Sans', sans-serif; font-size: 11px; font-weight: 300; letter-spacing: 0.10em; color: #8AA080; font-style: italic; }
+
+    /* CUSTOM CURSOR */
+    body { cursor: none; }
+    a, button { cursor: none; }
+
+    #cursor-dot {
+      position: fixed;
+      width: 8px; height: 8px;
+      background: #fff;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.08s ease, background 0.2s;
+      mix-blend-mode: difference;
+    }
+    #cursor-aura {
+      position: fixed;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(26,92,138,0.35) 0%, rgba(138,160,128,0.20) 50%, transparent 70%);
+      filter: blur(8px);
+      transition: transform 0.18s ease, width 0.25s ease, height 0.25s ease, opacity 0.2s ease;
+    }
+    body.cursor-hover #cursor-dot { transform: translate(-50%, -50%) scale(1.8); }
+    body.cursor-hover #cursor-aura {
+      width: 90px; height: 90px;
+      background: radial-gradient(circle, rgba(26,92,138,0.45) 0%, rgba(138,160,128,0.28) 50%, transparent 70%);
+      filter: blur(14px);
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 14px 20px; }
+      .connect-card { padding: 48px 28px; border-radius: 16px; }
+      .connect-headline { font-size: 38px; }
+      .connect-headline em { font-size: 48px; }
+      .connect-buttons { flex-direction: column; }
+      .connect-btn { justify-content: center; }
+      footer { flex-direction: column; gap: 8px; text-align: center; padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="breanna_portfolio.html" class="nav-name">Breanna May Cabusao</a>
+    <div class="nav-links">
+      <a href="breanna_portfolio.html#work" class="nav-link">Work</a>
+      <a href="breanna_portfolio.html#events" class="nav-link">Events</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="connect.html" class="nav-cta active">Say hi →</a>
+    </div>
+  </nav>
+
+  <div class="connect-page" style="position:relative;">
+    <div class="connect-page-aura"></div>
+    <div class="connect-card">
+
+      <div class="connect-eyebrow">Don't be a stranger</div>
+
+      <h1 class="connect-headline">
+        Let's <em>connect.</em>
+      </h1>
+
+      <p class="connect-body">
+        Curious about working together or just want to say hi?<br>
+        I'd love to hear from you.
+      </p>
+
+      <div class="connect-buttons">
+        <a href="mailto:breannacabusao@berkeley.edu" class="connect-btn connect-btn-email">
+          Email me
+        </a>
+        <a href="https://www.linkedin.com/in/breannacabusao" target="_blank" rel="noopener" class="connect-btn connect-btn-linkedin">
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="connect-note">Reach me directly at</div>
+      <div class="connect-email-display">breannacabusao@berkeley.edu</div>
+
+      <div class="connect-divider"></div>
+
+      <a href="breanna_portfolio.html" class="connect-back">← Back to home</a>
+
+      <div class="connect-222">for 222 ✦</div>
+
+    </div>
+  </div>
+
+  <!-- CUSTOM CURSOR -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-aura"></div>
+
+  <footer>
+    <span class="footer-copy">© 2026 Breanna May. All rights reserved.</span>
+    <span class="footer-love">Designed, curated, and built with love in San Diego.</span>
+  </footer>
+
+  <script>
+    const dot = document.getElementById('cursor-dot');
+    const aura = document.getElementById('cursor-aura');
+    let mouseX = 0, mouseY = 0;
+    let auraX = 0, auraY = 0;
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      dot.style.left = mouseX + 'px';
+      dot.style.top  = mouseY + 'px';
+    });
+
+    // Aura lags behind for a smooth trailing effect
+    function animateAura() {
+      auraX += (mouseX - auraX) * 0.1;
+      auraY += (mouseY - auraY) * 0.1;
+      aura.style.left = auraX + 'px';
+      aura.style.top  = auraY + 'px';
+      requestAnimationFrame(animateAura);
+    }
+    animateAura();
+
+    // Expand on hover over interactive elements
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
+  </script>
+
+</body>
+</html>

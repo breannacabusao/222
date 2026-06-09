@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Film — Breanna May Cabusao</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Georgia, serif; background: #2A2418; color: #F2EDE0; }
+
+    nav {
+      background: #2A2418; border-bottom: 1px solid #3a3028;
+      padding: 16px 48px; display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .nav-name { font-family: 'Playfair Display', Georgia, serif; font-size: 17px; font-weight: 700; color: #F2EDE0; letter-spacing: 0.02em; text-decoration: none; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-link { font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0.18em; color: #8AA080; text-transform: uppercase; text-decoration: none; transition: color 0.2s; }
+    .nav-link:hover { color: #F2EDE0; }
+    .nav-cta { font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; background: #8AA080; color: #2A2418; padding: 9px 20px; border-radius: 2px; text-decoration: none; }
+    .nav-cta:hover { background: #6b9060; color: #fff; }
+
+    /* PAGE HEADER */
+    .film-header { padding: 72px 48px 48px; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: end; }
+    .film-header-text {}
+    .back-link { font-family: 'Josefin Sans', sans-serif; font-size: 11px; font-weight: 300; letter-spacing: 0.16em; text-transform: uppercase; color: #8AA080; text-decoration: none; display: inline-block; margin-bottom: 32px; }
+    .back-link:hover { color: #F2EDE0; }
+    .film-eyebrow { font-family: 'Josefin Sans', sans-serif; font-size: 11px; font-weight: 300; letter-spacing: 0.22em; text-transform: uppercase; color: #8AA080; margin-bottom: 14px; }
+    .film-title { font-family: 'Playfair Display', Georgia, serif; font-size: 48px; font-weight: 700; color: #F2EDE0; line-height: 1.15; margin-bottom: 20px; }
+    .film-title em { font-style: italic; color: #8AA080; }
+    .film-sub { font-size: 17px; color: #a8998a; line-height: 1.85; margin-bottom: 28px; }
+
+    /* BIO CARD */
+    .film-bio-card { background: #1a1410; border: 1px solid #3a3028; border-radius: 4px; padding: 28px 30px; }
+    .film-bio-label { font-family: 'Josefin Sans', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #8AA080; margin-bottom: 12px; }
+    .film-bio-text { font-size: 14px; color: #c4b8a8; line-height: 1.85; margin-bottom: 18px; }
+    .film-bio-camera { font-family: 'Josefin Sans', sans-serif; font-size: 10px; font-weight: 300; letter-spacing: 0.16em; text-transform: uppercase; color: #8AA080; border-top: 1px solid #3a3028; padding-top: 14px; margin-top: 4px; }
+    .film-bio-camera strong { color: #F2EDE0; font-weight: 400; }
+    .film-bio-222 { font-size: 12px; color: #8AA080; line-height: 1.7; margin-top: 10px; font-style: italic; }
+
+    /* INTRO STRIP — full width scrolling reel */
+    .reel-section { background: #1a1410; border-top: 2px solid #3a3028; border-bottom: 2px solid #3a3028; overflow: hidden; padding: 12px 0; margin: 48px 0; }
+    .film-reel { display: flex; gap: 0; animation: filmScroll 70s linear infinite; width: max-content; }
+    .film-reel:hover { animation-play-state: paused; }
+    @keyframes filmScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .film-frame { width: 140px; flex-shrink: 0; background: #1a1410; border-right: 2px solid #3a3028; display: flex; flex-direction: column; cursor: pointer; transition: opacity 0.2s; }
+    .film-frame:hover { opacity: 0.8; }
+    .film-holes { display: flex; justify-content: space-around; align-items: center; padding: 5px 4px; }
+    .film-hole { width: 9px; height: 7px; background: #2A2418; border-radius: 1px; border: 1px solid #3a3028; }
+    .film-image { height: 110px; background: #2a2018; overflow: hidden; }
+    .film-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* PHILOSOPHY */
+    .film-philosophy { max-width: 800px; margin: 0 auto; padding: 0 48px 64px; }
+    .phil-label { font-family: 'Josefin Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #8AA080; margin-bottom: 16px; border-bottom: 1px solid #3a3028; padding-bottom: 8px; }
+    .phil-body { font-size: 17px; color: #a8998a; line-height: 1.9; }
+    .phil-body p { margin-bottom: 16px; }
+    .phil-body p:last-child { margin-bottom: 0; }
+    .phil-body strong { color: #F2EDE0; }
+
+    /* QUOTE */
+    .film-quote { max-width: 800px; margin: 0 auto 64px; padding: 0 48px; }
+    .quote-text { font-family: 'Playfair Display', Georgia, serif; font-size: 24px; font-weight: 400; font-style: italic; color: #F2EDE0; line-height: 1.6; border-left: 3px solid #8AA080; padding-left: 24px; }
+
+    /* PHOTO GALLERY */
+    .gallery-section { max-width: 1100px; margin: 0 auto; padding: 0 48px 48px; }
+    .gallery-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px; border-bottom: 1px solid #3a3028; padding-bottom: 8px; }
+    .gallery-label { font-family: 'Josefin Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #8AA080; }
+    .gallery-notion-link { font-family: 'Josefin Sans', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: #8AA080; text-decoration: none; border-bottom: 1px solid rgba(138,160,128,0.35); padding-bottom: 1px; transition: color 0.2s, border-color 0.2s; }
+    .gallery-notion-link:hover { color: #F2EDE0; border-color: rgba(242,237,224,0.5); }
+
+    /* Masonry-style grid with varied sizes */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 80px;
+      gap: 8px;
+    }
+    .gi { border-radius: 2px; overflow: hidden; background: #1a1410; cursor: pointer; transition: opacity 0.2s; }
+    .gi:hover { opacity: 0.85; }
+    .gi img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* Layout: 8 photos */
+    .gi-1 { grid-column: span 8; grid-row: span 4; }
+    .gi-2 { grid-column: span 4; grid-row: span 4; }
+    .gi-3 { grid-column: span 3; grid-row: span 4; }
+    .gi-4 { grid-column: span 6; grid-row: span 4; }
+    .gi-5 { grid-column: span 3; grid-row: span 4; }
+    .gi-6 { grid-column: span 4; grid-row: span 4; }
+    .gi-7 { grid-column: span 4; grid-row: span 4; }
+    .gi-8 { grid-column: span 4; grid-row: span 4; }
+
+    /* MORE WORK CTA */
+    .gallery-more { max-width: 1100px; margin: 0 auto; padding: 0 48px 72px; display: flex; align-items: center; gap: 20px; }
+    .gallery-more-text { font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 300; letter-spacing: 0.14em; color: #a8998a; text-transform: uppercase; }
+    .gallery-more-link { font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #F2EDE0; text-decoration: none; border-bottom: 2px solid #8AA080; padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+    .gallery-more-link:hover { color: #8AA080; }
+
+    /* SERENDIPITY — two-column origin story */
+    .serendipity-section { max-width: 1100px; margin: 0 auto; padding: 0 48px 80px; }
+    .seren-label { font-family: 'Josefin Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #8AA080; margin-bottom: 24px; border-bottom: 1px solid #3a3028; padding-bottom: 8px; }
+    .seren-grid { display: grid; grid-template-columns: 1fr 340px; gap: 56px; align-items: start; }
+    .seren-content {}
+    .seren-origin-label { font-family: 'Josefin Sans', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #8AA080; margin-bottom: 16px; }
+    .seren-headline { font-family: 'Playfair Display', Georgia, serif; font-size: 32px; font-weight: 700; color: #F2EDE0; line-height: 1.2; margin-bottom: 28px; }
+    .seren-headline em { font-style: italic; color: #8AA080; }
+    .seren-body { font-size: 17px; color: #a8998a; line-height: 1.9; }
+    .seren-body p { margin-bottom: 16px; }
+    .seren-body p:last-child { margin-bottom: 0; }
+    .seren-body strong { color: #F2EDE0; }
+    .seren-body em { font-style: italic; color: #c4b8a8; }
+
+    /* 222 connection note */
+    .seren-222-note { margin-top: 28px; padding: 20px 22px; background: #1a1410; border-left: 3px solid #8AA080; border-radius: 0 2px 2px 0; }
+    .seren-222-note p { font-size: 13px; color: #a8998a; line-height: 1.8; font-style: italic; }
+    .seren-222-note strong { color: #F2EDE0; font-style: normal; }
+
+    /* Vertical photo slot */
+    .seren-photo { width: 100%; }
+    .seren-photo-frame { width: 100%; aspect-ratio: 2/3; border-radius: 4px; overflow: hidden; background: #1a1410; border: 1px solid #3a3028; display: flex; align-items: center; justify-content: center; }
+    .seren-photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .seren-photo-placeholder { font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: #4a4038; text-align: center; padding: 24px; line-height: 1.8; }
+    .seren-photo-caption { font-family: 'Josefin Sans', sans-serif; font-size: 10px; font-weight: 300; letter-spacing: 0.14em; text-transform: uppercase; color: #5a4e42; margin-top: 12px; text-align: center; }
+
+    footer { background: #1a1410; border-top: 1px solid #3a3028; padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-name { font-family: 'Playfair Display', Georgia, serif; font-size: 17px; font-weight: 700; color: #F2EDE0; }
+    .footer-path { font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #8AA080; margin-top: 5px; }
+    .footer-email { font-family: 'Josefin Sans', sans-serif; font-size: 13px; font-weight: 300; color: #8AA080; text-decoration: none; }
+    .footer-email:hover { color: #F2EDE0; }
+
+    @media (max-width: 900px) {
+      .film-header { grid-template-columns: 1fr; gap: 32px; padding: 40px 20px 40px; }
+      .film-title { font-size: 34px; }
+      .film-philosophy, .gallery-section, .film-quote, .serendipity-section, .gallery-more { padding-left: 20px; padding-right: 20px; }
+      .gallery-grid { grid-template-columns: repeat(6, 1fr); }
+      .gi-1 { grid-column: span 6; grid-row: span 4; }
+      .gi-2 { grid-column: span 3; grid-row: span 4; }
+      .gi-3 { grid-column: span 3; grid-row: span 4; }
+      .gi-4, .gi-5 { grid-column: span 3; grid-row: span 3; }
+      .gi-333 { grid-column: span 3; grid-row: span 3; }
+      .gi-6 { grid-column: span 6; grid-row: span 4; }
+      .gi-7, .gi-8 { grid-column: span 3; grid-row: span 4; }
+      .seren-grid { grid-template-columns: 1fr; gap: 32px; }
+      .seren-photo { max-width: 280px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="breanna_portfolio.html" class="nav-name">Breanna May Cabusao</a>
+    <div class="nav-links">
+      <a href="breanna_portfolio.html#work" class="nav-link">Work</a>
+      <a href="breanna_portfolio.html#events" class="nav-link">Events</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="connect.html" class="nav-cta">Say hi →</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER — two columns: title left, bio card right -->
+  <div class="film-header">
+    <div class="film-header-text">
+      <a href="breanna_portfolio.html" class="back-link">← Back to portfolio</a>
+      <div class="film-eyebrow">Film photography</div>
+      <h1 class="film-title">Shooting on <em>film</em><br>is a way of noticing.</h1>
+      <p class="film-sub">Every photo here was a commitment. You can't take it back. That's the whole point.</p>
+    </div>
+    <div class="film-bio-card">
+      <div class="film-bio-label">About the photographer</div>
+      <p class="film-bio-text">A nostalgic person who is obsessed with capturing the raw little moments. Big fan of being present and sonder.</p>
+      <div class="film-bio-camera">Currently shooting with a <strong>Samsung Maxima Zoom 90i</strong></div>
+      <p class="film-bio-222">The same instinct that makes me reach for my camera. Noticing the small, unscripted moment. That's exactly what drew me to 222. Building the infrastructure for those moments to happen IRL is the work I want to be doing.</p>
+    </div>
+  </div>
+
+  <!-- SCROLLING REEL -->
+  <div class="reel-section">
+    <div class="film-reel" id="film-reel-top"></div>
+  </div>
+
+  <div class="film-quote">
+    <p class="quote-text">"Serendipity is why I shoot on film. The accidental frame, the unexpected light. You can't plan for it. You can only be ready."</p>
+  </div>
+
+  <!-- PHOTO GALLERY -->
+  <div class="gallery-section">
+    <div class="gallery-header">
+      <div class="gallery-label">Selected frames</div>
+      <a href="https://breannacabusao.notion.site/Film-79423004bdd383d68d3b01bba42fcfa4?pvs=143" target="_blank" rel="noopener" class="gallery-notion-link">See more on Notion →</a>
+    </div>
+    <div class="gallery-grid">
+      <div class="gi gi-1"><img src="images/film1.jpg" alt="Film photo" /></div>
+      <div class="gi gi-2"><img src="images/film2.jpg" alt="Film photo" /></div>
+      <div class="gi gi-3"><img src="images/film3.jpg" alt="Film photo" /></div>
+      <div class="gi gi-4"><img src="images/film4.jpg" alt="Film photo" /></div>
+      <div class="gi gi-5"><img src="images/film5.jpg" alt="Film photo" /></div>
+      <div class="gi gi-6"><img src="images/film6.jpg" alt="Film photo" /></div>
+      <div class="gi gi-7"><img src="images/film7.jpg" alt="Film photo" /></div>
+      <div class="gi gi-8"><img src="images/film8.jpg" alt="Film photo" /></div>
+    </div>
+  </div>
+
+  <!-- MORE WORK CTA -->
+  <div class="gallery-more">
+    <span class="gallery-more-text">There's more where that came from.</span>
+    <a href="https://breannacabusao.notion.site/Film-79423004bdd383d68d3b01bba42fcfa4?pvs=143" target="_blank" rel="noopener" class="gallery-more-link">Check out the full collection ↗</a>
+  </div>
+
+  <!-- SERENDIPITY — origin story two-column -->
+  <div class="serendipity-section">
+    <div class="seren-label">On serendipity</div>
+    <div class="seren-grid">
+
+      <!-- LEFT: text -->
+      <div class="seren-content">
+        <div class="seren-origin-label">Origin story</div>
+        <h2 class="seren-headline">How a stranger at a gym<br>changed the way I <em>see.</em></h2>
+        <div class="seren-body">
+          <p>I've always loved the idea of preserving the little moments that make life feel meaningful.</p>
+          <p>What started with disposable cameras turned into a deeper love for film after a serendipitous encounter at UC Berkeley's RSF gym, where <strong>a fellow film enthusiast gifted me my first camera.</strong> A Samsung Maxima Zoom 90i.</p>
+          <p>Since then, I've rarely left home without a camera in hand.</p>
+          <p>Welcome to the journey.</p>
+        </div>
+        <div class="seren-222-note">
+          <p>There's a reason I connect film photography to 222's mission. Both are about <strong>creating the conditions for something to happen.</strong> Then getting out of the way. The best photos I've taken were accidents. A stranger. The right light. Being present enough to notice. <strong>222 is building infrastructure for exactly that.</strong> I've been documenting it, one frame at a time, for years. I want to help build it.</p>
+        </div>
+      </div>
+
+      <!-- RIGHT: vertical photo -->
+      <div class="seren-photo">
+        <div class="seren-photo-frame">
+          <img src="images/filmorigin.jpg" alt="Where it all started" />
+        </div>
+        <div class="seren-photo-caption">RSF Gym, UC Berkeley · where it all started</div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      <div class="footer-name">Breanna May Cabusao</div>
+      <div class="footer-path">San Diego → Berkeley → NYC</div>
+    </div>
+    <a href="mailto:breannacabusao@berkeley.edu" class="footer-email">breannacabusao@berkeley.edu</a>
+  </footer>
+
+  <script>
+    const filmImages = [
+      'images/film1.jpg','images/film2.jpg','images/film3.jpg','images/film4.jpg',
+      'images/film5.jpg','images/film6.jpg','images/film7.jpg','images/film8.jpg',
+    ];
+    const frameCount = 16;
+    function makeFrame(i) {
+      const frame = document.createElement('div');
+      frame.className = 'film-frame';
+      const img = filmImages[i % filmImages.length];
+      frame.innerHTML = `
+        <div class="film-holes">${'<div class="film-hole"></div>'.repeat(5)}</div>
+        <div class="film-image">${img ? `<img src="${img}" alt="Film photo ${i + 1}" />` : ''}</div>
+        <div class="film-holes">${'<div class="film-hole"></div>'.repeat(5)}</div>`;
+      return frame;
+    }
+    const reel = document.getElementById('film-reel-top');
+    if (reel) {
+      for (let pass = 0; pass < 2; pass++) {
+        for (let i = 0; i < frameCount; i++) reel.appendChild(makeFrame(i));
+      }
+    }
+  </script>
+
+</body>
+</html>
