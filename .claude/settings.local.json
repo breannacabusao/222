@@ -6,7 +6,11 @@
       "mcp__Claude_Preview__preview_start",
       "Bash(where node *)",
       "Bash(where npx *)",
-      "Bash(where python *)"
+      "Bash(where python *)",
+      "Bash(cp breanna_portfolio.html index.html)",
+      "Bash(git add *)",
+      "Bash(git commit -m 'Shrink hero polaroids slightly, enlarge events headline with colored '\\\\''intention'\\\\'' *)",
+      "Bash(git push *)"
     ]
   }
 }
