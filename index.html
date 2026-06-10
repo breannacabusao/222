@@ -194,7 +194,7 @@
     .film-link:hover { color: #c4d4be; border-color: #8AA080; }
     .film-reel-wrap { width: 100%; overflow: hidden; cursor: pointer; padding: 14px 0; background: #1a1410; border-top: 2px solid #3a3028; }
     .film-reel-wrap:hover .film-reel { animation-play-state: paused; }
-    .film-reel { display: flex; animation: filmScroll 65s linear infinite; width: max-content; }
+    .film-reel { display: flex; animation: filmScroll 35s linear infinite; width: max-content; }
     @keyframes filmScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     .film-frame { width: 130px; flex-shrink: 0; background: #1a1410; border-right: 2px solid #3a3028; display: flex; flex-direction: column; }
     .film-holes { display: flex; justify-content: space-around; align-items: center; padding: 5px 4px; }
@@ -629,6 +629,9 @@
       .hero-pol img { width: 170px; height: 216px; }
       .hero-tags { gap: 12px; }
       .tag { font-size: 13px; padding: 7px 16px; }
+      .film-frame { width: 200px; }
+      .film-image { height: 160px; }
+      .film-hole { width: 12px; height: 9px; }
 
       /* body text scale-up */
       .hero-sub { font-size: 19px; }
@@ -899,8 +902,8 @@
 
       <!-- RIGHT: heading + event cards -->
       <div class="events-content">
-        <div class="eyebrow eyebrow-dark" style="color: #1A2C1A;">What I've built</div>
-        <h2 class="section-head">Curator. Designed with <em style="font-style: italic; color: #1A2C1A;">intention</em>.</h2>
+        <div class="eyebrow eyebrow-dark" style="color: #1A5C8A;">What I've built</div>
+        <h2 class="section-head">Curator. Designed with <em style="font-style: italic; color: #1A5C8A;">intention</em>.</h2>
         <p class="section-sub">Drawn to the little details that turn gatherings into memories. Always planning the next event, celebration, or excuse to bring people together.</p>
         <div class="events-grid">
           <div class="event-card" onclick="openModal('founders-day')">
@@ -1588,7 +1591,7 @@
         'images/film1.jpg','images/film2.jpg','images/film3.jpg','images/film4.jpg',
         'images/film5.jpg','images/film6.jpg','images/film7.jpg','images/film8.jpg',
       ];
-      const frameCount = 16;
+      const frameCount = 8;
       const reel = document.getElementById('film-reel');
       if (!reel) return;
       function makeFrame(i) {
