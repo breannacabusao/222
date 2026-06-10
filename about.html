@@ -87,6 +87,18 @@
       .builder-float { float: none !important; width: 100% !important; max-width: 100% !important; margin: 0 0 16px 0 !important; }
       .builder-grid { grid-template-columns: 1fr !important; }
     }
+
+    @media (max-width: 600px) {
+      .skills-grid { grid-template-columns: 1fr !important; }
+    }
+
+    @media (max-width: 480px) {
+      nav { flex-wrap: wrap; gap: 12px; padding: 12px 16px; }
+      .nav-name { font-size: 15px; }
+      .nav-links { gap: 14px; flex-wrap: wrap; row-gap: 8px; }
+      .nav-link { font-size: 10px; }
+      .nav-cta { font-size: 10px; padding: 7px 14px; }
+    }
   </style>
 </head>
 <body>
