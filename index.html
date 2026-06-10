@@ -479,7 +479,24 @@
     .closing-manifesto p { font-family: Georgia, serif; font-size: 17px; color: #d4ccbc; line-height: 1.3; margin-bottom: 6px; }
     .closing-manifesto p.manifesto-gap { margin-bottom: 20px; }
     .closing-manifesto p.manifesto-accent { font-size: 17px; font-weight: 600; color: #8cc4a0; margin-bottom: 6px; }
-    .closing-manifesto p.manifesto-cta { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 700; color: #e8e0d0; margin-top: 20px; margin-bottom: 4px; }
+    .closing-manifesto p.manifesto-cta { margin-top: 20px; margin-bottom: 4px; }
+    .manifesto-cta-btn {
+      display: inline-block;
+      font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 700; font-style: italic;
+      color: #e8e0d0; text-decoration: none;
+      border: 1.5px solid #8AA080; border-radius: 4px;
+      padding: 12px 28px;
+      transition: color 0.2s, border-color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.2s;
+      animation: ctaGlow 2.2s ease-in-out infinite;
+    }
+    .manifesto-cta-btn:hover { color: #fff; border-color: #fff; background: rgba(138,160,128,0.15); box-shadow: 0 0 26px rgba(138,160,128,0.6); transform: translateY(-2px); animation: none; }
+    .manifesto-cta-hint {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'Josefin Sans', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase;
+      color: #8AA080; margin-left: 14px;
+      animation: hintPulse 2.2s ease-in-out infinite;
+    }
+    @keyframes hintPulse { 0%,100% { opacity: 0.5; transform: translateX(0); } 50% { opacity: 1; transform: translateX(-4px); } }
     .closing-manifesto p.manifesto-end { font-size: 15px; color: #7a9878; font-style: italic; margin-bottom: 0; }
 
     /* Join line */
@@ -705,7 +722,7 @@
       <a href="#experience" class="nav-link">Experience</a>
       <a href="#events" class="nav-link">Events</a>
       <a href="about.html" class="nav-link">About</a>
-      <a href="connect.html" class="nav-cta">Say hi →</a>
+      <a href="connect.html" class="nav-cta">Say yes →</a>
     </div>
   </nav>
 
@@ -1296,7 +1313,7 @@
             <p class="manifesto-gap"> </p>
 
             <p>so here's your chance:</p>
-            <p class="manifesto-cta">say yes to me.</p>
+            <p class="manifesto-cta"><a href="connect.html" class="manifesto-cta-btn">say yes to me.</a><span class="manifesto-cta-hint">← click me</span></p>
             <p class="manifesto-end">and let's see what happens.</p>
           </div>
 
