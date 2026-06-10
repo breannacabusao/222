@@ -645,7 +645,17 @@
       .nav-links { gap: 14px; flex-wrap: wrap; row-gap: 8px; }
       .nav-link { font-size: 10px; }
       .nav-cta { font-size: 10px; padding: 7px 14px; }
-      .hero-headline { font-size: 24px; word-break: break-word; }
+      .hero-headline { font-size: 28px; word-break: normal; overflow-wrap: normal; white-space: normal; }
+
+      /* Shooting my shot — stack visual on top, hide bounce animation on mobile */
+      .real-shot-zone { grid-template-columns: 1fr; text-align: center; padding: 24px 18px; }
+      .real-shot-visual { order: -1; width: 100%; margin: 0 auto 16px; }
+      .real-shot-gif, .bball-court { width: 160px; height: 160px; margin: 0 auto; }
+      .bball-wrap, .bball { animation: none !important; }
+
+      /* String lights — scale up to fill width on mobile */
+      .string-lights { height: 90px; }
+      .ideas { padding-top: 64px; }
     }
   </style>
 </head>
