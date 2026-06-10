@@ -7,8 +7,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@300;400;600&family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: Georgia, serif; background: #EDE8DA; color: #2A2418; }
+    html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
+    body { font-family: Georgia, serif; background: #EDE8DA; color: #2A2418; overflow-x: hidden; max-width: 100%; }
 
     /* ── NAV ── */
     nav { background: #EDE8DA; border-bottom: 2px solid #8AA080; padding: 16px 48px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
@@ -600,6 +600,7 @@
       #work { grid-template-columns: 1fr; padding: 32px 20px; gap: 28px; }
       .hero-333 { bottom: 4px; }
       .hero-headline { font-size: 30px; }
+      .hero-headline br { display: none; }
       .spotlight { padding: 56px 20px; }
       #events { padding: 48px 20px; }
       .events-inner { grid-template-columns: 1fr; }
@@ -685,7 +686,7 @@
             </div>
           </div>
         </div>
-        <h1 class="hero-headline" id="wave-headline">I bring people together.<br>Then I make sure every<br>detail is right.</h1>
+        <h1 class="hero-headline" id="wave-headline">I bring people together. <br>Then I make sure every <br>detail is right.</h1>
         <p class="hero-sub">chief of staff candidate @ 222.</p>
         <div class="hero-tags">
           <span class="tag">Event curation</span>
