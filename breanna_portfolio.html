@@ -41,10 +41,12 @@
     .hero-coord-line.l2 { background: linear-gradient(to right, #C9962A, #1A5C8A); }
 
     /* scroll indicator */
-    .hero-scroll { position: absolute; bottom: 28px; left: 48px; display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 2; }
-    .hero-scroll-text { font-family: 'Josefin Sans', sans-serif; font-size: 9px; font-weight: 300; letter-spacing: 0.22em; text-transform: uppercase; color: #8AA080; }
-    .hero-scroll-line { width: 1px; height: 36px; background: linear-gradient(to bottom, #8AA080, transparent); animation: scrollPulse 2s ease-in-out infinite; }
-    @keyframes scrollPulse { 0%,100% { opacity: 0.4; transform: scaleY(1); } 50% { opacity: 1; transform: scaleY(1.2); } }
+    .hero-scroll { position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 2; }
+    .hero-scroll-text { font-family: 'Josefin Sans', sans-serif; font-size: 9px; font-weight: 400; letter-spacing: 0.3em; text-transform: uppercase; color: #8AA080; }
+    .hero-scroll-mouse { width: 22px; height: 36px; border: 1.5px solid #8AA080; border-radius: 12px; position: relative; opacity: 0.75; animation: scrollBounce 2s ease-in-out infinite; }
+    .hero-scroll-mouse::before { content: ''; position: absolute; top: 6px; left: 50%; transform: translateX(-50%); width: 3px; height: 6px; border-radius: 2px; background: #8AA080; animation: scrollWheel 2s ease-in-out infinite; }
+    @keyframes scrollWheel { 0% { opacity: 1; transform: translate(-50%, 0); } 60% { opacity: 0; transform: translate(-50%, 14px); } 100% { opacity: 0; transform: translate(-50%, 0); } }
+    @keyframes scrollBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
 
     /* wave bottom of hero */
     .hero-wave { position: absolute; bottom: -1px; left: 0; right: 0; z-index: 2; pointer-events: none; }
@@ -391,9 +393,25 @@
     .real-headline-row { display: flex; align-items: flex-end; gap: 28px; margin-bottom: 32px; }
     .real-headline { font-family: 'Playfair Display', Georgia, serif; font-size: 42px; font-weight: 700; color: #F2EDE0; line-height: 1.15; margin-bottom: 0; }
     .real-headline em { font-style: italic; color: #8AA080; }
-    .real-hungry { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 4px; background: rgba(138,160,128,0.10); border: 1px solid rgba(138,160,128,0.28); border-radius: 4px; padding: 12px 18px; flex-shrink: 0; margin-bottom: 6px; }
-    .real-hungry-tag { font-family: 'Josefin Sans', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase; color: #8AA080; }
-    .real-hungry-yes { font-family: 'Playfair Display', Georgia, serif; font-size: 14px; font-style: italic; color: #F2EDE0; }
+    .real-hungry { display: inline-flex; flex-direction: column; align-items: center; gap: 2px; flex-shrink: 0; margin-bottom: 6px; position: relative; }
+    .real-hungry-tag {
+      font-family: 'Josefin Sans', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase;
+      color: #F2EDE0; background: #1a1410; padding: 6px 12px 5px;
+      border: 2px solid #F2EDE0; display: inline-block;
+      box-shadow: 3px 3px 0 rgba(138,160,128,0.5), 0 0 18px rgba(138,160,128,0.25);
+      transform: rotate(-1.5deg); position: relative; z-index: 1;
+    }
+    .real-hungry-yes {
+      font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 700; font-style: italic;
+      color: #8AA080; display: inline-block;
+      text-shadow: 0 0 20px rgba(138,160,128,0.6), 0 0 40px rgba(138,160,128,0.3);
+      transform: rotate(1deg);
+      animation: hungryGlow 2.8s ease-in-out infinite;
+    }
+    @keyframes hungryGlow {
+      0%, 100% { text-shadow: 0 0 16px rgba(138,160,128,0.5), 0 0 32px rgba(138,160,128,0.2); }
+      50%       { text-shadow: 0 0 28px rgba(138,160,128,0.9), 0 0 56px rgba(138,160,128,0.45); }
+    }
     .real-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 40px; }
 
     /* basketball shot animation */
@@ -688,7 +706,7 @@
     <!-- Scroll indicator -->
     <div class="hero-scroll">
       <div class="hero-scroll-text">scroll</div>
-      <div class="hero-scroll-line"></div>
+      <div class="hero-scroll-mouse"></div>
     </div>
 
     <!-- Wave -->
@@ -706,7 +724,7 @@
       <div class="eyebrow eyebrow-light">Origin story</div>
       <h2 class="spotlight-headline">Designing Third Spaces</h2>
       <p class="spotlight-body">For a long time, I thought I had my future figured out: pre-med @ UC Berkeley, medical school, stable career. Instead, I found myself saying yes to everything. Research, jobs, club soccer, Greek life, a double major, and countless side quests. All trying to figure out what I actually cared about.</p>
-      <p class="spotlight-body">What kept showing up was community. Friends graduating, moving to new cities, and struggling to find connection. The more I paid attention, the more I became fascinated by third spaces and the role they play in helping people feel grounded, supported, and less alone.</p>
+      <p class="spotlight-body">What kept showing up was community. Over time friends graduated, moved to new cities, and the more I paid attention, the more I became fascinated by third spaces and the role they play in helping people feel grounded, supported, and less alone.</p>
       <p class="spotlight-body">I was exploring how to build something in this space myself. Then I found 222…</p>
       <div class="pill-row">
         <span class="pill">Product management</span>
@@ -774,7 +792,7 @@
     <div class="film-strip-text">
       <div class="film-eyebrow">Always noticing</div>
       <h3 class="film-headline">Serendipity is why I shoot on film.</h3>
-      <p class="film-body">I picked up a film camera because I wanted to slow down — to actually see what I was looking at before I pressed the shutter. That's what drew me to third spaces. And it's what drew me to 222. The small moment, the accidental conversation, the table that becomes a tradition — I've been documenting that before I had a name for it.</p>
+      <p class="film-body">What started with disposable cameras turned into an obsession after a stranger gifted me my first film camera. Film taught me to be present and appreciate the beauty of not knowing exactly how a moment will turn out. The photos I love most aren't of places. They're of the people: convos that last longer than expected, familiar faces that become friends, and the communities that form around them. Long before I knew what a "third space" was, I was documenting them.</p>
       <a href="film.html" class="film-link">View film portfolio →</a>
     </div>
     <div class="film-reel-wrap" onclick="window.location.href='film.html'">
@@ -809,7 +827,7 @@
           </div>
         </div>
         <p class="about-bio">I'm a <strong>builder, connector, and creator.</strong> I am someone who can't sit still when there's something worth making. I grew up in San Diego, found my footing at Berkeley, and next NYC (hopefully!).</p>
-        <p class="about-bio">Before I found 222, I was deep into this problem. Studying third spaces, I've deeply considered starting something in this space. Then I saw what 222 is already building.</p>
+        <p class="about-bio">Before I found 222, I was deep into this problem. Studying third spaces, I've deeply considered starting something in this area of research. Then I saw what 222 is already building.</p>
         <p class="about-bio">Some ideas are worth starting. Others are worth joining, and I'd love to be a part of it.</p>
         <a href="about.html" class="about-link">Read more about me →</a>
       </div>
@@ -826,19 +844,19 @@
     <div class="rec-inner">
       <div class="eyebrow eyebrow-light">Zero fluff.</div>
       <h2 class="section-head">No Airbnb, no Uber. Just 200+ real conversations under real pressure.</h2>
-      <p class="section-sub">Greek recruitment at Berkeley is a contact sport. Here's what it actually looks like — and why it's better training than it sounds.</p>
+      <p class="section-sub">Greek recruitment at Berkeley is a contact sport. Here's what it actually looks like, and why it's better training than it sounds.</p>
       <div class="rec-grid">
         <div style="display:flex;flex-direction:column;">
           <div class="rec-main" style="flex:1;">
-            <p style="margin-bottom:14px;">11 parties. 7 minutes each. 2–3 conversations at once — names, backstories, nerves — while giving house tours and teaching people how to talk to strangers.</p>
+            <p style="margin-bottom:14px;">11 parties. 7 minutes each. 2–3 conversations at once. Names, backstories, nerves. All while giving house tours and teaching people how to talk to strangers.</p>
             <p style="margin-bottom:14px;">After the last rotation: exec team debrief, catching ranking inflation, adjusting for recency bias, making final calls on people's futures in the chapter.</p>
-            <p>Over two years, that's <strong style="color:#8AA080;">200+ conversations</strong> — tracked, evaluated, and acted on. Pattern recognition and rapid-fire decision-making under pressure, at scale.</p>
+            <p>Over two years, that's <strong style="color:#8AA080;">200+ conversations</strong>, tracked, evaluated, and acted on. Pattern recognition and rapid-fire decision-making under pressure, at scale.</p>
           </div>
         </div>
         <div class="rec-stat-col">
           <div class="rec-stat"><div class="stat-num">200+</div><div class="stat-label">Conversations over 2 years of executive recruitment leadership</div></div>
           <div class="rec-stat"><div class="stat-num">60+</div><div class="stat-label">One-on-one coffee &amp; meal chats with prospective members</div></div>
-          <div class="rec-stat"><div class="stat-num">11</div><div class="stat-label">Back-to-back parties at peak — 7 min rotations, 2–3 convos at once</div></div>
+          <div class="rec-stat"><div class="stat-num">11</div><div class="stat-label">Back-to-back parties at peak. 7 min rotations, 2–3 convos at once</div></div>
         </div>
       </div>
     </div>
@@ -848,17 +866,17 @@
   <section class="tenets">
     <div class="tenets-inner">
       <div class="eyebrow" style="color:#8AA080;margin-bottom:14px;">What I stand for</div>
-      <h2 class="tenets-headline">I recognized 222's values<br>because I already lived them.</h2>
-      <p class="tenets-sub">These aren't words I adopted after reading your careers page. They're how I've operated for years — long before I knew there was a company that named them.</p>
+      <h2 class="tenets-headline">I recognized 222's values<br>because I already live them.</h2>
+      <p class="tenets-sub">These aren't words I adopted after reading your careers page. They're just how I've operated for years.</p>
       <div class="tenets-grid">
         <div class="tenet-card" style="position:relative;">
           <div class="tenet-label">Craftsmanship</div>
-          <div class="tenet-body">I don't cut corners on the things that matter. <strong>The name cards, the playlist arc, the event that runs clean</strong> — I obsess over details nobody notices until they're missing.</div>
+          <div class="tenet-body">I don't cut corners on the things that matter. <strong>The name cards, the playlist arc, the event that runs clean.</strong> I obsess over details nobody notices until they're missing.</div>
           <span style="position:absolute;bottom:12px;right:14px;font-family:'Playfair Display',Georgia,serif;font-size:11px;font-style:italic;font-weight:700;color:rgba(138,160,128,0.3);letter-spacing:0.08em;user-select:none;">333</span>
         </div>
         <div class="tenet-card">
           <div class="tenet-label">First principles</div>
-          <div class="tenet-body">My Designing Third Spaces research didn't start with existing solutions. It started with <strong>the actual problem</strong> — why people feel alone in a crowd. The answer pointed to 222.</div>
+          <div class="tenet-body">My Designing Third Spaces research didn't start with existing solutions. It started with <strong>the actual problem:</strong> why people feel alone in a crowd. The answer pointed to 222.</div>
         </div>
         <div class="tenet-card">
           <div class="tenet-label">Delusional optimism</div>
@@ -870,7 +888,7 @@
         </div>
         <div class="tenet-card">
           <div class="tenet-label">Hard problems</div>
-          <div class="tenet-body">I chose to take a design class I didn't need for my degree — because the problem mattered more than the credit. I watched friends graduate into the question of "what's your plan?" and felt it. <strong>I was already trying to solve loneliness</strong> before I found anyone else building toward it.</div>
+          <div class="tenet-body">I chose to take a design class I didn't need for my degree, because the problem mattered more than the credit. I watched friends graduate into the question of "what's your plan?" and felt it. <strong>I was already trying to solve loneliness</strong> before I found anyone else building toward it.</div>
         </div>
         <div class="tenet-card">
           <div class="tenet-label">A+ talent only</div>
@@ -884,15 +902,20 @@
   <section class="human">
     <div class="human-inner">
       <div class="human-eyebrow">On being human</div>
-      <h2 class="human-headline">You only live once. Might as well make it count.</h2>
-      <p class="human-pull">"Our 20-person team here dislikes the use of AI-generated content and is seriously concerned about the rise of slop online and the bastardization of 'creativity.' Every part of 222 has a human curation element. Every single question we've chosen to ask was hand written, obsessed over, and refined by members of the team."<span class="pull-attr">— Keyan Kazemian, 222</span></p>
+      <h2 class="human-headline">You only live once. Am I right?</h2>
+      <p class="human-pull">"Our 20-person team here dislikes the use of AI-generated content and is seriously concerned about the rise of slop online and the bastardization of 'creativity.' Every part of 222 has a human curation element. Every single question we've chosen to ask was hand written, obsessed over, and refined by members of the team."<span class="pull-attr">Keyan Kazemian, 222</span></p>
       <div class="human-body">
+        <div style="float:right;width:300px;max-width:42%;margin:4px 0 16px 28px;">
+          <img src="images/sydneyrunning.jpg" alt="Running with Sydney during grad photos" style="width:100%;border-radius:6px;display:block;" />
+          <div style="font-family:'Josefin Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#4a6b58;margin-top:7px;text-align:right;">Caught mid-run, mid-laugh, mid-everything · grad pics with Sydney</div>
+        </div>
         <p>This resonates with me deeply.</p>
         <p>In one of my favorite Berkeley classes, Neuropsychology of Happiness, we learned that the strongest predictor of happiness isn't money, status, or success. It's the <strong>quality of our relationships.</strong> Who we surround ourselves with.</p>
         <p>When I look around me I see a world clawing for instant gratification. A world that is optimized for consumption with endless scrolling, with more time being spent on our devices than actually living it.</p>
         <p>This is why I care about what 222 is building.</p>
         <p>I don't want to spend my life optimizing feeds. I want to help create more IRL experiences for people to go outside, meet someone new, hear a story, and feel seen.</p>
         <p><strong>I mean, to me, that's work worth doing.</strong></p>
+        <div style="clear:both;"></div>
       </div>
     </div>
   </section>
@@ -1000,7 +1023,7 @@
         </div>
         <div class="exp-cta">
           <div class="exp-cta-text">Looking for Chief of Staff @ 222</div>
-          <div class="exp-cta-sub">SoHo, NYC · Ready to move</div>
+          <div class="exp-cta-sub">New York, NY · Ready to move</div>
           <a href="about.html#experience" class="exp-cta-link" id="exp-cta-link"><span class="cta-arrow">→</span> Full experience breakdown</a>
         </div>
       </div>
@@ -1022,11 +1045,11 @@
       <div class="real-grid">
         <div class="real-card">
           <div class="real-card-label">Even if it's not Chief of Staff</div>
-          <div class="real-card-body">I just want to be a part of the team. Curating events, doing research, figuring out how to maximize connection, making 222 better — <strong>put me anywhere in that and I'm in.</strong> The role is a starting point, not a ceiling.</div>
+          <div class="real-card-body">I just want to be a part of the team. Curating events, doing research, figuring out how to maximize connection, making 222 better. <strong>Put me anywhere in that and I'm in.</strong> The role is a starting point, not a ceiling.</div>
         </div>
         <div class="real-card">
           <div class="real-card-label">I live for a full schedule</div>
-          <div class="real-card-body">I don't just tolerate being busy — I <strong>thrive on it</strong>. I worked 3 jobs simultaneously while carrying a double major, staying active in extracurriculars, maintaining a social life, and still making time for sidequests. That's how I'm built.</div>
+          <div class="real-card-body">I don't just tolerate being busy. I <strong>thrive on it</strong>. I worked 3 jobs simultaneously while carrying a double major, staying active in extracurriculars, maintaining a social life, and still making time for sidequests. That's how I'm built.</div>
         </div>
         <div class="real-card">
           <div class="real-card-label">Zero ego</div>
@@ -1034,7 +1057,7 @@
         </div>
         <div class="real-card">
           <div class="real-card-label">Delusional optimism</div>
-          <div class="real-card-body">I built an entire portfolio website on the chance you say yes. That's not desperation — that's just who I am when I believe in something. <strong>Delusional? Perhaps. Worth it? Absolutely.</strong></div>
+          <div class="real-card-body">I built an entire portfolio website on the chance you say yes. That's not desperation. That's just who I am when I believe in something. <strong>Delusional? Perhaps. Worth it? Absolutely.</strong></div>
         </div>
       </div>
 
@@ -1412,7 +1435,7 @@
         stats: [{ num: "100", label: "Guests" }, { num: "20+", label: "Volunteers across 8 committees" }, { num: "$1,600", label: "Budget managed end-to-end" }],
         photos: ['images/eventfounders1.jpg','images/eventfounders2.jpg','images/eventfounders3.jpg','images/eventfounders4.jpg','images/eventfounders5.jpg','images/eventfounders6.jpg','images/eventfounders7.jpg','images/eventfounders8.jpg'],
         body: `<p>The mocktails were fun, the flowers were pretty, but the best part was watching people talk. Alumni drifted through rooms they hadn't seen in years, current members listened to stories from long before they arrived, and for a little while it felt like every generation of Delta Sigma was sharing the same home. Those are the kinds of moments that make all the planning worth it.</p>
-<p>I led the full planning and execution of Delta Sigma's annual Founder's Day celebration — a community-building event designed to close the gap between alumni and current members. I developed the event vision, budget proposal, programming strategy, and execution plan from scratch. I designed a new format focused on alumni engagement, storytelling, and meaningful interaction across generations.</p>
+<p>I led the full planning and execution of Delta Sigma's annual Founder's Day celebration, a community-building event designed to close the gap between alumni and current members. I developed the event vision, budget proposal, programming strategy, and execution plan from scratch. I designed a new format focused on alumni engagement, storytelling, and meaningful interaction across generations.</p>
 <p>Coordinating 20+ volunteers across marketing, alumni outreach, food service, mocktails, activities, house tours, décor, and operations meant building committee structures, clear assignments, and day-of logistics that held even when things went sideways.</p>
 <p><strong>Skills:</strong> Event Strategy · Community Building · Program Management · Volunteer Coordination · Stakeholder Engagement · Budget Management · Public Speaking</p>`
       },
@@ -1433,9 +1456,9 @@
         stats: [{ num: "$200", label: "Budget" }, { num: "1", label: "Sproul — Berkeley's most visible corner" }, { num: "∞", label: "Moments of pause" }],
         photos: ['images/eventmental1.jpg','images/eventmental2.jpg','images/eventmental3.jpg','images/eventmental4.jpg','images/eventmental5.jpg','images/eventmental6.jpg','images/eventmental7.jpg'],
         body: `<p>People are always in a rush on campus, especially on Sproul Plaza. It's so easy to get wrapped up in the chaos of finals, so I wanted to build a collaborative space where people could pause, be creative, and be present. Watching students slow down even for a moment just to stop and read a message and smile — that's what makes it all worth it.</p>
-<p>I planned and led a campus-wide chalk art activation as part of UC Berkeley's Mental Health Week. $200 budget. Berkeley's most trafficked space. The goal wasn't to broadcast a message — it was to create a moment of pause, reflection, and unexpected connection in a place where everyone is usually moving too fast.</p>
+<p>I planned and led a campus-wide chalk art activation as part of UC Berkeley's Mental Health Week. $200 budget. Berkeley's most trafficked space. The goal wasn't to broadcast a message. It was to create a moment of pause, reflection, and unexpected connection in a place where everyone is usually moving too fast.</p>
 <p>I developed the concept and gratitude-focused prompts, coordinated logistics and setup, distributed mental health resources, and facilitated student participation and conversations throughout the day. The interactive format let people add to it, respond to it, walk through it on their way to class.</p>
-<p>Small budget. Real impact. The constraint was the point — you just have to care enough to notice what the space needs.</p>
+<p>Small budget. Real impact.</p>
 <p><strong>Skills:</strong> Community Building · Event Planning · Program Management · Mental Health · Human-Centered Design</p>`
       },
       'friendsgiving': {
