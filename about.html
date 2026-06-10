@@ -84,6 +84,8 @@
       .skills-grid { grid-template-columns: 1fr 1fr; }
       .beyond-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 20px; }
+      .builder-float { float: none !important; width: 100% !important; max-width: 100% !important; margin: 0 0 16px 0 !important; }
+      .builder-grid { grid-template-columns: 1fr !important; }
     }
   </style>
 </head>
@@ -183,12 +185,12 @@
               <div class="timeline-detail">30+ staff. Managed daily operations, scheduling, and first responder protocols at one of the largest campus recreation facilities in the country.</div>
             </div>
           </li>
-          <li class="timeline-item">
-            <div class="timeline-year">2026</div>
+          <li class="timeline-item" style="background:#2e5c3a;border-radius:4px;padding:16px;margin:4px 0;">
+            <div class="timeline-year" style="color:#cfe0d2;">2022–2026</div>
             <div>
-              <div class="timeline-role">B.A. Data Science + Cognitive Science</div>
-              <div class="timeline-org">UC Berkeley · Class of 2026</div>
-              <div class="timeline-detail">Double major. RecWell Board of Governors, ASUC Mental Health Commission, Student Affairs Advisory Council.</div>
+              <div class="timeline-role" style="color:#fff;">B.A. Data Science + Cognitive Science</div>
+              <div class="timeline-org" style="color:#cfe0d2;">UC Berkeley · Class of 2026</div>
+              <div class="timeline-detail" style="color:#e6ece6;">Double major. RecWell Board of Governors, ASUC Mental Health Commission, Student Affairs Advisory Council. Research labs: Center for Teaching and Learning, Golden Bear Sleep & Mood Research Clinic.</div>
             </div>
           </li>
         </ul>
@@ -212,7 +214,7 @@
       <div class="bio-section">
         <div class="bio-section-label">Being a builder</div>
         <div class="bio-body">
-          <div style="float:right;width:230px;max-width:42%;margin:4px 0 16px 24px;">
+          <div class="builder-float" style="float:right;width:230px;max-width:42%;margin:4px 0 16px 24px;">
             <div style="background:#0a0a0a;border-radius:28px;padding:10px;box-shadow:0 8px 24px rgba(0,0,0,0.18);">
               <div style="border-radius:18px;overflow:hidden;">
                 <img src="images/designtext.jpg" alt="Text message asking me to join the L'Oréal design competition" style="width:100%;display:block;" />
@@ -220,10 +222,10 @@
             </div>
             <div style="font-family:'Josefin Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#3a6b4a;margin-top:9px;text-align:center;">"BRE I have a proposal for you..."</div>
           </div>
-          <p>A few months ago, a friend from class texted me. 7 days to do a design challenge hosted by L'Oréal. Did I do it? <strong>Um, of course.</strong> Did it lead anywhere? Not really. Were the all-nighters, whiteboard spirals, and 2 a.m. "wait, what if we..." moments some of the most fun I've had building something? <strong>Absolutely.</strong></p>
+          <p>A few months ago, a friend from class texted me. 11 days to do a design challenge hosted by L'Oréal. Did I do it? <strong>Um, of course.</strong> Did it lead anywhere? Not really. Were the all-nighters, whiteboard spirals, and 2 a.m. "wait, what if we..." moments some of the most fun I've had building something? <strong>Absolutely.</strong></p>
           <div style="clear:both;"></div>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;">
+        <div class="builder-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;">
           <div style="grid-column:span 1;">
             <div style="border-radius:4px;overflow:hidden;aspect-ratio:4/3;background:#dde8d8;">
               <img src="images/lorealcertified.jpg" alt="L'Oréal design challenge certificate" style="width:100%;height:100%;object-fit:cover;display:block;" />
@@ -232,31 +234,31 @@
           </div>
           <div style="grid-column:span 1;">
             <div style="border-radius:4px;overflow:hidden;aspect-ratio:4/3;background:#dde8d8;">
-              <video src="images/build_color.MOV" style="width:100%;height:100%;object-fit:cover;display:block;" autoplay loop muted playsinline></video>
+              <video class="lazy-vid" data-src="images/build_color.MOV" style="width:100%;height:100%;object-fit:cover;display:block;" loop muted playsinline preload="none"></video>
             </div>
             <div style="font-family:'Josefin Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#3a6b4a;margin-top:7px;">Late-night color mapping</div>
           </div>
           <div style="grid-column:span 1;">
             <div style="border-radius:4px;overflow:hidden;aspect-ratio:4/3;background:#dde8d8;">
-              <video src="images/build_exploratorium.MOV" style="width:100%;height:100%;object-fit:cover;display:block;" autoplay loop muted playsinline></video>
+              <video class="lazy-vid" data-src="images/build_exploratorium.MOV" style="width:100%;height:100%;object-fit:cover;display:block;" loop muted playsinline preload="none"></video>
             </div>
             <div style="font-family:'Josefin Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#3a6b4a;margin-top:7px;">Field research at the Exploratorium</div>
           </div>
           <div style="grid-column:span 1;">
             <div style="border-radius:4px;overflow:hidden;aspect-ratio:4/3;background:#dde8d8;">
-              <video src="images/build_map.MOV" style="width:100%;height:100%;object-fit:cover;display:block;" autoplay loop muted playsinline></video>
+              <video class="lazy-vid" data-src="images/build_map.MOV" style="width:100%;height:100%;object-fit:cover;display:block;" loop muted playsinline preload="none"></video>
             </div>
             <div style="font-family:'Josefin Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#3a6b4a;margin-top:7px;">Mapping it all out</div>
           </div>
           <div style="grid-column:span 1;">
             <div style="border-radius:4px;overflow:hidden;aspect-ratio:4/3;background:#dde8d8;">
-              <video src="images/build_talk.MOV" style="width:100%;height:100%;object-fit:cover;display:block;" autoplay loop muted playsinline></video>
+              <video class="lazy-vid" data-src="images/build_talk.MOV" style="width:100%;height:100%;object-fit:cover;display:block;" loop muted playsinline preload="none"></video>
             </div>
             <div style="font-family:'Josefin Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#3a6b4a;margin-top:7px;">Pitching the idea</div>
           </div>
           <div style="grid-column:span 1;">
             <div style="border-radius:4px;overflow:hidden;aspect-ratio:4/3;background:#dde8d8;">
-              <video src="images/build_mapgroup.MOV" style="width:100%;height:100%;object-fit:cover;display:block;" autoplay loop muted playsinline></video>
+              <video class="lazy-vid" data-src="images/build_mapgroup.MOV" style="width:100%;height:100%;object-fit:cover;display:block;" loop muted playsinline preload="none"></video>
             </div>
             <div style="font-family:'Josefin Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#3a6b4a;margin-top:7px;">Affinity mapping with the team</div>
           </div>
@@ -300,6 +302,23 @@
     </div>
     <a href="mailto:breannacabusao@berkeley.edu" class="footer-email">breannacabusao@berkeley.edu</a>
   </footer>
+
+  <script>
+    // Lazy-load and autoplay builder videos only when scrolled into view
+    const lazyVids = document.querySelectorAll('.lazy-vid');
+    const vidObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const v = entry.target;
+        if (entry.isIntersecting) {
+          if (!v.src) v.src = v.dataset.src;
+          v.play().catch(() => {});
+        } else {
+          v.pause();
+        }
+      });
+    }, { threshold: 0.25 });
+    lazyVids.forEach(v => vidObs.observe(v));
+  </script>
 
 </body>
 </html>

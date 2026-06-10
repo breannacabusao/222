@@ -305,7 +305,10 @@
 
       <a href="breanna_portfolio.html" class="connect-back">← Back to home</a>
 
-      <div class="connect-222">for 222 ✦</div>
+      <div class="connect-222" style="display:flex;flex-direction:column;align-items:flex-end;gap:3px;">
+        <span id="easter-222" style="cursor:pointer;" title="psst...">for 222 ✦</span>
+        <span class="easter-333" data-default="333" data-found="333 ✦ found the last one!" style="cursor:pointer;" title="psst...">333</span>
+      </div>
 
     </div>
   </div>
@@ -341,6 +344,25 @@
       requestAnimationFrame(animateAura);
     }
     animateAura();
+
+    // Easter egg: 222 -> 333
+    const egg = document.getElementById('easter-222');
+    if (egg) {
+      let revealed = false;
+      egg.addEventListener('click', () => {
+        revealed = !revealed;
+        egg.textContent = revealed ? '333 ✦ (you found it)' : 'for 222 ✦';
+      });
+    }
+
+    // 333 easter egg
+    document.querySelectorAll('.easter-333').forEach(el => {
+      let revealed = false;
+      el.addEventListener('click', () => {
+        revealed = !revealed;
+        el.textContent = revealed ? el.dataset.found : el.dataset.default;
+      });
+    });
 
     // Expand on hover over interactive elements
     document.querySelectorAll('a, button').forEach(el => {

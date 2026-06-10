@@ -54,7 +54,7 @@
 
     /* RIGHT SIDE — polaroid hover zone */
     .hero-right { position: relative; height: 100%; min-height: 420px; display: flex; align-items: center; justify-content: center; }
-    .hero-333 { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 700; font-style: italic; letter-spacing: 0.12em; color: rgba(138,160,128,0.55); text-align: center; user-select: none; transition: opacity 0.4s; position: absolute; bottom: 28px; right: 20px; }
+    .hero-333 { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 700; font-style: italic; letter-spacing: 0.12em; color: rgba(138,160,128,0.55); text-align: center; user-select: none; transition: opacity 0.4s; position: absolute; bottom: -22px; right: 20px; z-index: 0; }
     #work:hover .hero-333 { opacity: 0; }
 
     /* Polaroids that scatter on hover */
@@ -598,6 +598,7 @@
     @media (max-width: 768px) {
       nav { padding: 14px 20px; }
       #work { grid-template-columns: 1fr; padding: 32px 20px; gap: 28px; }
+      .hero-333 { bottom: 4px; }
       .hero-headline { font-size: 30px; }
       .spotlight { padding: 56px 20px; }
       #events { padding: 48px 20px; }
@@ -611,6 +612,7 @@
       .tenets { padding: 56px 20px; }
       .tenets-grid { grid-template-columns: 1fr 1fr; }
       .human { padding: 56px 20px; }
+      .human-photo-float { float: none !important; width: 100% !important; max-width: 100% !important; margin: 0 0 20px 0 !important; }
       .always { padding: 48px 20px; }
       .always-row { grid-template-columns: 1fr 1fr; }
       .closing-layout { grid-template-columns: 1fr; gap: 40px; }
@@ -698,7 +700,7 @@
       <!-- RIGHT: polaroid hover zone -->
       <div class="hero-right" id="hero-right">
         <div class="hero-pol-zone" id="hero-pol-zone"></div>
-        <div class="hero-333">333</div>
+        <div class="hero-333 easter-333" data-default="333" data-found="there's 3 more hidden around the site. good luck" style="cursor:pointer;max-width:220px;text-align:right;white-space:normal;font-family:'Josefin Sans',sans-serif;font-style:normal;" title="psst...">333</div>
       </div>
 
     </div><!-- /.hero-inner -->
@@ -792,7 +794,7 @@
     <div class="film-strip-text">
       <div class="film-eyebrow">Always noticing</div>
       <h3 class="film-headline">Serendipity is why I shoot on film.</h3>
-      <p class="film-body">What started with disposable cameras turned into an obsession after a stranger gifted me my first film camera. Film taught me to be present and appreciate the beauty of not knowing exactly how a moment will turn out. The photos I love most aren't of places. They're of the people: convos that last longer than expected, familiar faces that become friends, and the communities that form around them. Long before I knew what a "third space" was, I was documenting them.</p>
+      <p class="film-body">What started with disposable cameras turned into an obsession after a stranger gifted me my first film camera. Film taught me to be present and appreciate <strong>the beauty of not knowing exactly how a moment will turn out</strong>. The photos I love most aren't of places. They're of the people: convos that last longer than expected, familiar faces that become friends, and the communities that form around them. <strong>Long before I knew what a "third space" was, I was documenting them.</strong></p>
       <a href="film.html" class="film-link">View film portfolio →</a>
     </div>
     <div class="film-reel-wrap" onclick="window.location.href='film.html'">
@@ -872,7 +874,7 @@
         <div class="tenet-card" style="position:relative;">
           <div class="tenet-label">Craftsmanship</div>
           <div class="tenet-body">I don't cut corners on the things that matter. <strong>The name cards, the playlist arc, the event that runs clean.</strong> I obsess over details nobody notices until they're missing.</div>
-          <span style="position:absolute;bottom:12px;right:14px;font-family:'Playfair Display',Georgia,serif;font-size:11px;font-style:italic;font-weight:700;color:rgba(138,160,128,0.3);letter-spacing:0.08em;user-select:none;">333</span>
+          <span class="easter-333" data-default="333" data-found="333 ✦ found one!" style="position:absolute;bottom:12px;right:14px;font-family:'Playfair Display',Georgia,serif;font-size:11px;font-style:italic;font-weight:700;color:rgba(138,160,128,0.3);letter-spacing:0.08em;cursor:pointer;" title="psst...">333</span>
         </div>
         <div class="tenet-card">
           <div class="tenet-label">First principles</div>
@@ -905,7 +907,7 @@
       <h2 class="human-headline">You only live once. Am I right?</h2>
       <p class="human-pull">"Our 20-person team here dislikes the use of AI-generated content and is seriously concerned about the rise of slop online and the bastardization of 'creativity.' Every part of 222 has a human curation element. Every single question we've chosen to ask was hand written, obsessed over, and refined by members of the team."<span class="pull-attr">Keyan Kazemian, 222</span></p>
       <div class="human-body">
-        <div style="float:right;width:300px;max-width:42%;margin:4px 0 16px 28px;">
+        <div class="human-photo-float" style="float:right;width:300px;max-width:42%;margin:4px 0 16px 28px;">
           <img src="images/sydneyrunning.jpg" alt="Running with Sydney during grad photos" style="width:100%;border-radius:6px;display:block;" />
           <div style="font-family:'Josefin Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#4a6b58;margin-top:7px;text-align:right;">Caught mid-run, mid-laugh, mid-everything · grad pics with Sydney</div>
         </div>
@@ -1240,13 +1242,13 @@
             <div class="sig-pen"></div>
           </div>
           <span class="closing-name">Breanna May Cabusao</span>
-          <div style="font-family:'Playfair Display',Georgia,serif;font-size:13px;font-style:italic;font-weight:700;color:rgba(138,160,128,0.15);letter-spacing:0.1em;margin-top:6px;user-select:none;">333</div>
+          <div class="easter-333" data-default="333" data-found="333 ✦ found another!" style="font-family:'Playfair Display',Georgia,serif;font-size:13px;font-style:italic;font-weight:700;color:rgba(138,160,128,0.15);letter-spacing:0.1em;margin-top:6px;cursor:pointer;" title="psst...">333</div>
 
           <div class="closing-latin-block">
             <div class="closing-latin">dulcius ex asperis</div>
             <div class="closing-latin-trans">sweeter after difficulty</div>
           </div>
-        </div>
+        </div><!-- /.closing-left -->
 
         <!-- RIGHT: 222 thesis photo, flush to top -->
         <div class="closing-right">
@@ -1260,6 +1262,16 @@
 
       </div><!-- /.closing-layout -->
 
+    </div>
+  </section>
+
+  <!-- ── EASTER EGG NOTE ── -->
+  <section style="background:#1A2C1A;padding:36px 24px;text-align:center;">
+    <div style="max-width:560px;margin:0 auto;font-family:'Lora', Georgia, serif; font-size:13px;font-weight:600;letter-spacing:0.03em;line-height:1.9;color:#8AA080;">
+      There are <span style="color:#F2EDE0;">333</span> easter eggs hidden throughout this site <em style="font-style:italic;color:#6f8a6a;">(aka my favorite angel number)</em>.<br>
+      Congrats if you've found all of them — click on one for a little message ✦<br>
+      It's the small details that make us smile.<br>
+      <span style="font-size:11px;color:#6f8a6a;">(hint: one's at the top of the main page, hiding behind some film)</span>
     </div>
   </section>
 
@@ -1569,6 +1581,15 @@
         stats.forEach(s => obs.observe(s));
       }
     })();
+
+    // 333 easter eggs
+    document.querySelectorAll('.easter-333').forEach(el => {
+      let revealed = false;
+      el.addEventListener('click', () => {
+        revealed = !revealed;
+        el.textContent = revealed ? el.dataset.found : el.dataset.default;
+      });
+    });
   </script>
 </body>
 </html>
