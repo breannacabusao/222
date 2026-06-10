@@ -153,7 +153,10 @@
       align-items: center;
       gap: 28px;
       animation: polScroll 38s linear infinite;
+      backface-visibility: hidden;
+      transform: translateZ(0);
     }
+    .polaroid-img img { image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; }
     @keyframes polScroll { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
     .polaroid {
       background: #fff;
@@ -620,8 +623,8 @@
       .hero-headline { font-size: 64px; }
       .hero-text { max-width: 820px; }
       .spotlight-inner { max-width: 1000px; }
-      .events-inner { max-width: 1380px; grid-template-columns: 420px 1fr; gap: 56px; }
-      .polaroid-strip { height: 760px; }
+      .events-inner { max-width: 1380px; grid-template-columns: 480px 1fr; gap: 56px; }
+      .polaroid-strip { height: 860px; }
       .polaroid { width: 100%; }
       .film-strip-text { max-width: 1380px; }
       .about-preview-inner { max-width: 1380px; grid-template-columns: 340px 1fr; gap: 72px; }
