@@ -627,17 +627,6 @@
       #events .eyebrow { font-size: 13px; }
       #events .section-head { font-size: 38px; }
       .hero-pol img { width: 170px; height: 216px; }
-
-      /* vertical coords sidebar */
-      .hero-text { display: grid; grid-template-columns: 100px 1fr; gap: 32px; align-items: start; }
-      .hero-coords-bar { grid-column: 1; grid-row: 1 / 4; flex-direction: column; align-items: flex-start; gap: 0; margin-bottom: 0; padding-top: 6px; }
-      .hero-coord-stop { flex-direction: row; align-items: center; gap: 8px; }
-      .hero-coord-info { text-align: left; }
-      .hero-coord-line { width: 1px; height: 28px; min-width: 0; max-width: none; margin: 6px 0 6px 5px; align-self: flex-start; background: linear-gradient(to bottom, #8AA080, #C9962A); }
-      .hero-coord-line.l2 { background: linear-gradient(to bottom, #C9962A, #1A5C8A); }
-      .hero-headline { grid-column: 2; grid-row: 1; }
-      .hero-sub { grid-column: 2; grid-row: 2; }
-      .hero-tags { grid-column: 2; grid-row: 3; }
       .hero-tags { gap: 12px; }
       .tag { font-size: 13px; padding: 7px 16px; }
 
@@ -910,8 +899,8 @@
 
       <!-- RIGHT: heading + event cards -->
       <div class="events-content">
-        <div class="eyebrow eyebrow-dark">What I've built</div>
-        <h2 class="section-head">Curator. Designed with <em style="font-style: italic; color: #4a8060;">intention</em>.</h2>
+        <div class="eyebrow eyebrow-dark" style="color: #1A2C1A;">What I've built</div>
+        <h2 class="section-head">Curator. Designed with <em style="font-style: italic; color: #1A2C1A;">intention</em>.</h2>
         <p class="section-sub">Drawn to the little details that turn gatherings into memories. Always planning the next event, celebration, or excuse to bring people together.</p>
         <div class="events-grid">
           <div class="event-card" onclick="openModal('founders-day')">
