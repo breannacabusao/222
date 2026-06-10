@@ -62,6 +62,7 @@
     .hero-pol { position: absolute; background: #fff; padding: 8px 8px 22px; box-shadow: 0 6px 20px rgba(0,0,0,0.18); opacity: 0; transform: scale(0.7) rotate(var(--r)); transition: opacity 0.5s ease calc(var(--d)), transform 0.6s cubic-bezier(0.34,1.56,0.64,1) calc(var(--d)); pointer-events: none; }
     #work:hover .hero-pol { opacity: 1; transform: scale(1) rotate(var(--r)) translate(var(--tx), var(--ty)); }
     .hero-pol img { width: 110px; height: 140px; object-fit: cover; display: block; }
+    .hero-pol-dup { display: none; }
 
     /* Watercolor blobs — always faintly visible, bloom on hover */
     .hero-watercolor {
@@ -600,11 +601,21 @@
       #work { grid-template-columns: 1fr; padding: 32px 20px; gap: 28px; }
       .hero-inner { grid-template-columns: 1fr; padding: 24px 4px 60px; }
       .hero-right { order: -1; min-height: auto; height: auto; margin-bottom: 16px; }
-      .hero-pol-zone { position: static; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; pointer-events: auto; }
-      .hero-pol { position: static !important; opacity: 1 !important; transform: none !important; transition: none !important; padding: 6px 6px 14px; }
+      .hero-right { overflow: hidden; }
+      .hero-pol-zone {
+        position: static; display: flex; flex-wrap: nowrap; align-items: center; gap: 14px;
+        pointer-events: none; width: max-content;
+        animation: heroPolScroll 28s linear infinite;
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+      }
+      .hero-pol { position: static !important; opacity: 1 !important; transform: none !important; transition: none !important; padding: 6px 6px 14px; flex-shrink: 0; }
+      .hero-pol-dup { display: block; }
       .hero-pol img { width: 78px; height: 100px; }
+      @keyframes heroPolScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
       .hero-333 { bottom: 4px; }
-      .hero-headline { font-size: 30px; }
+      .hero-scroll { position: static; margin-top: 24px; pointer-events: none; }
+      .hero-headline { font-size: 28px; word-break: normal; overflow-wrap: normal; hyphens: none; }
       .hero-headline br { display: none; }
       .spotlight { padding: 56px 20px; }
       #events { padding: 48px 20px; }
@@ -1443,6 +1454,14 @@
       positions.forEach((p, i) => {
         const pol = document.createElement('div');
         pol.className = 'hero-pol';
+        pol.style.cssText = `top:${p.top};left:${p.left};--r:${p.r};--tx:${p.tx};--ty:${p.ty};--d:${p.d};`;
+        pol.innerHTML = `<img src="${polImgs[i % polImgs.length]}" alt="" />`;
+        zone.appendChild(pol);
+      });
+      // Duplicate set for seamless mobile marquee loop (hidden on desktop via CSS)
+      positions.forEach((p, i) => {
+        const pol = document.createElement('div');
+        pol.className = 'hero-pol hero-pol-dup';
         pol.style.cssText = `top:${p.top};left:${p.left};--r:${p.r};--tx:${p.tx};--ty:${p.ty};--d:${p.d};`;
         pol.innerHTML = `<img src="${polImgs[i % polImgs.length]}" alt="" />`;
         zone.appendChild(pol);
