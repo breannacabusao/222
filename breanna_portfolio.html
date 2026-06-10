@@ -599,9 +599,10 @@
     @media (max-width: 768px) {
       nav { padding: 14px 20px; }
       #work { grid-template-columns: 1fr; padding: 32px 20px; gap: 28px; }
-      .hero-inner { grid-template-columns: 1fr; padding: 24px 4px 60px; }
-      .hero-right { order: -1; min-height: auto; height: auto; margin-bottom: 16px; }
-      .hero-right { overflow: hidden; }
+      .hero-inner { grid-template-columns: 1fr; padding: 24px 16px 24px; min-width: 0; width: 100%; }
+      .hero-text { min-width: 0; width: 100%; max-width: 100%; }
+      .hero-coords-bar { flex-wrap: wrap; row-gap: 8px; }
+      .hero-right { order: -1; min-height: auto; height: auto; margin-bottom: 16px; min-width: 0; width: 100%; overflow: hidden; flex-direction: column; }
       .hero-pol-zone {
         position: static; display: flex; flex-wrap: nowrap; align-items: center; gap: 14px;
         pointer-events: none; width: max-content;
@@ -613,8 +614,8 @@
       .hero-pol-dup { display: block; }
       .hero-pol img { width: 78px; height: 100px; }
       @keyframes heroPolScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-      .hero-333 { bottom: 4px; }
-      .hero-scroll { position: static; margin-top: 24px; pointer-events: none; }
+      .hero-333 { position: static; text-align: center; max-width: 100%; margin: 10px auto 0; opacity: 0.55; }
+      .hero-scroll { position: static; margin: 16px auto 0; pointer-events: none; }
       .hero-headline { font-size: 28px; word-break: normal; overflow-wrap: normal; hyphens: none; }
       .hero-headline br { display: none; }
       .spotlight { padding: 56px 20px; }
