@@ -33,6 +33,8 @@
 
     .bio-content {}
     .bio-eyebrow { font-family: 'Josefin Sans', sans-serif; font-size: 11px; font-weight: 300; letter-spacing: 0.22em; text-transform: uppercase; color: #8AA080; margin-bottom: 14px; }
+    .back-link { font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #2A2418; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px; padding: 8px 16px; border: 1.5px solid rgba(42,36,24,0.3); border-radius: 3px; transition: background 0.2s, border-color 0.2s; }
+    .back-link:hover { background: rgba(42,36,24,0.06); border-color: rgba(42,36,24,0.6); }
     .bio-headline { font-family: 'Playfair Display', Georgia, serif; font-size: 44px; font-weight: 700; color: #2A2418; line-height: 1.15; margin-bottom: 32px; }
     .bio-headline em { font-style: italic; color: #1A5C8A; }
     .bio-section { margin-bottom: 40px; }
@@ -76,7 +78,7 @@
     .footer-email { font-family: 'Josefin Sans', sans-serif; font-size: 13px; font-weight: 300; color: #b8d4e8; text-decoration: none; }
     .footer-email:hover { color: #fff; }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       nav { padding: 14px 20px; }
       .bio-hero { grid-template-columns: 1fr; padding: 40px 20px; gap: 32px; }
       .bio-photo { position: static; aspect-ratio: 1; }
@@ -84,12 +86,17 @@
       .skills-grid { grid-template-columns: 1fr 1fr; }
       .beyond-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 20px; }
-      .builder-float { float: none !important; width: 100% !important; max-width: 100% !important; margin: 0 0 16px 0 !important; }
-      .builder-grid { grid-template-columns: 1fr !important; }
+    }
+
+    @media (min-width: 601px) and (max-width: 1024px) {
+      .builder-float { float: right !important; width: 230px !important; max-width: 42% !important; margin: 4px 0 16px 24px !important; }
+      .builder-grid { grid-template-columns: repeat(3, 1fr) !important; }
     }
 
     @media (max-width: 600px) {
       .skills-grid { grid-template-columns: 1fr !important; }
+      .builder-float { float: none !important; width: 100% !important; max-width: 100% !important; margin: 0 0 16px 0 !important; }
+      .builder-grid { grid-template-columns: 1fr !important; }
     }
 
     @media (max-width: 480px) {
@@ -106,7 +113,7 @@
   <nav>
     <a href="breanna_portfolio.html" class="nav-name">Breanna May Cabusao</a>
     <div class="nav-links">
-      <a href="breanna_portfolio.html#work" class="nav-link">Work</a>
+      <a href="breanna_portfolio.html" class="nav-link">Work</a>
       <a href="breanna_portfolio.html#events" class="nav-link">Events</a>
       <a href="about.html" class="nav-link active">About</a>
       <a href="connect.html" class="nav-cta">Say hi →</a>
@@ -120,6 +127,7 @@
     </div>
 
     <div class="bio-content">
+      <a href="breanna_portfolio.html#about-preview" class="back-link">← Back to portfolio</a>
       <div class="bio-eyebrow">About me</div>
       <h1 class="bio-headline">Hi, I'm <em>Breanna.</em></h1>
 
@@ -163,6 +171,7 @@
       </div>
 
       <div class="bio-section" id="experience">
+        <a href="breanna_portfolio.html#experience" class="back-link">← Back to portfolio</a>
         <div class="bio-section-label">Experience</div>
         <ul class="timeline">
           <li class="timeline-item">

@@ -56,6 +56,8 @@
     .hero-right { position: relative; height: 100%; min-height: 420px; display: flex; align-items: center; justify-content: center; }
     .hero-333 { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 700; font-style: italic; letter-spacing: 0.12em; color: rgba(138,160,128,0.55); text-align: center; user-select: none; transition: opacity 0.4s; position: absolute; bottom: -22px; right: 20px; z-index: 0; }
     #work:hover .hero-333 { opacity: 0; }
+    .hero-333-mobile { display: none; }
+    .hero-scroll-mobile { display: none; }
 
     /* Polaroids that scatter on hover */
     .hero-pol-zone { position: absolute; inset: 0; pointer-events: none; }
@@ -131,7 +133,7 @@
 
     /* ── EVENTS ── */
     #events { padding: 72px 48px; background: #C8D4C4; }
-    .events-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 310px 1fr; gap: 40px; align-items: start; }
+    .events-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 310px 1fr; gap: 40px; align-items: stretch; }
     .section-head { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; color: #2A2418; margin-bottom: 8px; }
     .section-sub { font-size: 16px; color: #4a6b58; margin-bottom: 32px; line-height: 1.7; }
 
@@ -139,10 +141,10 @@
     .polaroid-strip {
       position: sticky;
       top: 88px;
-      height: 500px;
+      height: 627px;
       overflow: hidden;
-      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
-      mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 6%, black 100%, black 100%);
+      mask-image: linear-gradient(to bottom, transparent 0%, black 6%, black 100%, black 100%);
     }
     .polaroid-strip:hover .polaroid-track { animation-play-state: paused; }
     .polaroid-track {
@@ -596,12 +598,12 @@
     .modal-photo-label { font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 300; text-align: center; padding: 8px; }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       nav { padding: 14px 20px; }
       #work { grid-template-columns: 1fr; padding: 32px 20px; gap: 28px; }
       .hero-inner { grid-template-columns: 1fr; padding: 24px 16px 24px; min-width: 0; width: 100%; }
       .hero-text { min-width: 0; width: 100%; max-width: 100%; }
-      .hero-coords-bar { flex-wrap: wrap; row-gap: 8px; }
+      .hero-coords-bar { flex-wrap: wrap; row-gap: 8px; justify-content: center; }
       .hero-right { order: -1; min-height: auto; height: auto; margin-bottom: 16px; min-width: 0; width: 100%; overflow: hidden; flex-direction: column; }
       .hero-pol-zone {
         position: static; display: flex; flex-wrap: nowrap; align-items: center; gap: 14px;
@@ -614,8 +616,16 @@
       .hero-pol-dup { display: block; }
       .hero-pol img { width: 78px; height: 100px; }
       @keyframes heroPolScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-      .hero-333 { position: static; text-align: center; max-width: 100%; margin: 10px auto 0; opacity: 0.55; }
-      .hero-scroll { position: static; width: fit-content; margin: 16px auto 0; pointer-events: none; }
+      .hero-333 { display: none; }
+      .hero-333-mobile {
+        display: block; margin-top: 16px; text-align: center;
+        font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: 700; font-style: italic;
+        letter-spacing: 0.12em; color: rgba(138,160,128,0.6);
+      }
+      .hero-scroll-desktop { display: none; }
+      .hero-scroll-mobile { display: flex; position: static; left: auto; bottom: auto; transform: none; width: fit-content; margin: 28px auto 0; pointer-events: none; }
+      .egg-hint-desktop { display: none !important; }
+      .egg-hint-mobile { display: inline !important; }
       .hero-headline { font-size: 28px; word-break: normal; overflow-wrap: normal; hyphens: none; }
       .hero-headline br { display: none; }
       .spotlight { padding: 56px 20px; }
@@ -628,12 +638,9 @@
       .recruiting { padding: 48px 20px; }
       .rec-grid { grid-template-columns: 1fr; }
       .tenets { padding: 56px 20px; }
-      .tenets-grid { grid-template-columns: 1fr 1fr; }
       .human { padding: 56px 20px; }
       .human-photo-float { float: none !important; width: 100% !important; max-width: 100% !important; margin: 0 0 20px 0 !important; }
       .always { padding: 48px 20px; }
-      .always-row { grid-template-columns: 1fr 1fr; }
-      .closing-layout { grid-template-columns: 1fr; gap: 40px; }
       .ideas { padding: 56px 20px; }
       #about-preview { padding: 48px 20px; }
       .about-preview-inner { grid-template-columns: 1fr; gap: 28px; }
@@ -650,10 +657,24 @@
       .footer-bottom { flex-direction: column; align-items: center; text-align: center; }
     }
 
+    @media (min-width: 601px) and (max-width: 1024px) {
+      .hero-headline { font-size: 44px; line-height: 1.15; }
+      .hero-headline br { display: inline; }
+      .events-inner { grid-template-columns: 220px 1fr; gap: 28px; align-items: start; }
+      .polaroid-strip { position: sticky; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: 0; height: 950px; }
+      .polaroid { width: 100%; margin-bottom: 0; }
+      .events-grid { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 600px) {
       .exp-grid { grid-template-columns: 1fr !important; }
       .tenets-grid { grid-template-columns: 1fr !important; }
       .always-row { grid-template-columns: 1fr !important; }
+      .closing-layout { grid-template-columns: 1fr !important; gap: 40px; }
+      .polaroid-strip { height: auto !important; overflow: visible !important; -webkit-mask-image: none !important; mask-image: none !important; }
+      .polaroid-track { animation: none !important; transform: none !important; flex-direction: row !important; flex-wrap: wrap !important; justify-content: center !important; gap: 14px !important; }
+      .polaroid-track .polaroid:nth-child(n+7) { display: none !important; }
+      .film-reel { will-change: transform; }
     }
 
     @media (max-width: 480px) {
@@ -738,6 +759,11 @@
           <span class="tag tag-gold">Salsa dancer</span>
           <span class="tag tag-gold">Film photographer</span>
         </div>
+        <div class="hero-333-mobile easter-333" data-default="333" data-found="there's 3 more hidden around the site. good luck" style="cursor:pointer;font-family:'Josefin Sans',sans-serif;font-style:normal;" title="psst...">333</div>
+        <div class="hero-scroll hero-scroll-mobile">
+          <div class="hero-scroll-text">scroll</div>
+          <div class="hero-scroll-mouse"></div>
+        </div>
       </div>
 
       <!-- RIGHT: polaroid hover zone -->
@@ -749,7 +775,7 @@
     </div><!-- /.hero-inner -->
 
     <!-- Scroll indicator -->
-    <div class="hero-scroll">
+    <div class="hero-scroll hero-scroll-desktop">
       <div class="hero-scroll-text">scroll</div>
       <div class="hero-scroll-mouse"></div>
     </div>
@@ -764,7 +790,7 @@
   </section>
 
   <!-- ── ORIGIN STORY ── -->
-  <section class="spotlight">
+  <section class="spotlight" id="third-spaces-spotlight">
     <div class="spotlight-inner">
       <div class="eyebrow eyebrow-light">Origin story</div>
       <h2 class="spotlight-headline">Designing Third Spaces</h2>
@@ -833,7 +859,7 @@
   </section>
 
   <!-- ── FILM STRIP ── -->
-  <section class="film-strip">
+  <section class="film-strip" id="film-strip-section">
     <div class="film-strip-text">
       <div class="film-eyebrow">Always noticing</div>
       <h3 class="film-headline">Serendipity is why I shoot on film.</h3>
@@ -1314,7 +1340,8 @@
       There are <span style="color:#F2EDE0;">333</span> easter eggs hidden throughout this site <em style="font-style:italic;color:#6f8a6a;">(aka my favorite angel number)</em>.<br>
       Congrats if you've found all of them — click on one for a little message ✦<br>
       It's the small details that make us smile.<br>
-      <span style="font-size:11px;color:#6f8a6a;">(hint: one's at the top of the main page, hiding behind some film)</span>
+      <span class="egg-hint-desktop" style="font-size:11px;color:#6f8a6a;">(hint: one's at the top of the main page, hiding behind some film)</span>
+      <span class="egg-hint-mobile" style="font-size:11px;color:#6f8a6a;display:none;">(hint: one's right at the top of the page — scroll back up and look)</span>
     </div>
   </section>
 
@@ -1341,6 +1368,17 @@
   </div>
 
   <script>
+    if ('scrollRestoration' in history) {
+      const navEntries = performance.getEntriesByType('navigation');
+      const navType = navEntries.length ? navEntries[0].type : '';
+      if (navType === 'reload') {
+        history.scrollRestoration = 'manual';
+        window.scrollTo(0, 0);
+      } else {
+        history.scrollRestoration = 'auto';
+      }
+    }
+
     /* ── SPOTLIGHT + IDEAS + CLOSING HOVER GLOW ── */
     (function() {
       ['.spotlight', '.ideas', '.closing'].forEach(sel => {

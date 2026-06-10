@@ -202,9 +202,9 @@
       bottom: 28px;
       right: 36px;
       font-family: 'Courier New', monospace;
-      font-size: 9px;
+      font-size: 11px;
       letter-spacing: 0.14em;
-      color: rgba(138,160,128,0.35);
+      color: rgba(138,160,128,0.65);
       text-transform: uppercase;
     }
 
@@ -251,11 +251,16 @@
       filter: blur(14px);
     }
 
+    @media (max-width: 1024px) {
+      .connect-222 { font-size: 12px; color: rgba(138,160,128,0.7); }
+    }
+
     @media (max-width: 640px) {
       nav { padding: 14px 20px; }
       .connect-card { padding: 48px 28px; border-radius: 16px; }
       .connect-headline { font-size: 38px; }
-      .connect-headline em { font-size: 48px; }
+      .connect-headline em { font-size: 38px; }
+      .connect-222 { position: static; align-items: center !important; margin-top: 32px; font-size: 11px; color: rgba(138,160,128,0.6); }
       .connect-buttons { flex-direction: column; }
       .connect-btn { justify-content: center; }
       footer { flex-direction: column; gap: 8px; text-align: center; padding: 20px; }
@@ -275,7 +280,7 @@
   <nav>
     <a href="breanna_portfolio.html" class="nav-name">Breanna May Cabusao</a>
     <div class="nav-links">
-      <a href="breanna_portfolio.html#work" class="nav-link">Work</a>
+      <a href="breanna_portfolio.html" class="nav-link">Work</a>
       <a href="breanna_portfolio.html#events" class="nav-link">Events</a>
       <a href="about.html" class="nav-link">About</a>
       <a href="connect.html" class="nav-cta active">Say hi →</a>
