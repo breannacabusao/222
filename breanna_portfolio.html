@@ -227,20 +227,20 @@
     .recruiting::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at var(--mx,50%) var(--my,50%), rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.04) 40%, transparent 65%); opacity: 0; transition: opacity 0.35s ease; pointer-events: none; z-index: 0; }
     .recruiting:hover::before { opacity: 1; }
     .recruiting .section-head { color: #fff; }
-    .recruiting .section-sub { color: #9ec4de; margin-bottom: 0; }
+    .recruiting .section-sub { color: #d6e8f4; margin-bottom: 0; }
     .rec-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
     .rec-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px; margin-top: 28px; }
-    .rec-main { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; padding: 26px 28px; font-size: 16px; color: #d0e4f0; line-height: 1.85; }
+    .rec-main { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; padding: 26px 28px; font-size: 16px; color: #eef4f8; line-height: 1.85; }
     .rec-stat-col { display: flex; flex-direction: column; gap: 14px; }
-    .rec-stat { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; padding: 18px 22px; opacity: 0; transform: translateX(20px); transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.25s ease, border-color 0.25s ease; }
+    .rec-stat { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; padding: 18px 22px; opacity: 0; transform: translateX(20px); transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.25s ease, border-color 0.25s ease; }
     .rec-stat.visible { animation: statSlide 0.6s cubic-bezier(0.22,1,0.36,1) forwards; }
     .rec-stat:nth-child(1) { animation-delay: 0.05s; }
     .rec-stat:nth-child(2) { animation-delay: 0.18s; }
     .rec-stat:nth-child(3) { animation-delay: 0.31s; }
     @keyframes statSlide { to { opacity: 1; transform: translateX(0); } }
     .rec-stat:hover { transform: translateX(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); border-color: rgba(138,160,128,0.5); }
-    .stat-num { font-family: 'Playfair Display', Georgia, serif; font-size: 32px; font-weight: 700; color: #8AA080; }
-    .stat-label { font-family: 'Josefin Sans', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: #d0e8f8; margin-top: 3px; }
+    .stat-num { font-family: 'Playfair Display', Georgia, serif; font-size: 32px; font-weight: 700; color: #c2e0b4; }
+    .stat-label { font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: #eef4f8; margin-top: 4px; line-height: 1.5; }
     .rec-honest { background: rgba(138,160,128,0.18); border: 1px solid #8AA080; border-radius: 4px; padding: 22px 26px; margin-top: 16px; font-size: 14px; color: #d0e4f0; line-height: 1.8; font-style: italic; }
 
     /* ── TENETS ── */
@@ -1012,7 +1012,7 @@
   <!-- ── RECRUITING ── -->
   <section class="recruiting">
     <div class="rec-inner">
-      <div class="eyebrow eyebrow-light">Zero fluff.</div>
+      <div class="eyebrow eyebrow-light" style="color:#c2e0b4;">Zero fluff.</div>
       <h2 class="section-head">No Airbnb, no Uber. Just 200+ real conversations under real pressure.</h2>
       <p class="section-sub">Greek recruitment at Berkeley is a contact sport. Here's what it actually looks like, and why it's better training than it sounds.</p>
       <div class="rec-grid">
@@ -1020,7 +1020,7 @@
           <div class="rec-main" style="flex:1;">
             <p style="margin-bottom:14px;">11 parties. 7 minutes each. 2–3 conversations at once. Names, backstories, nerves. All while giving house tours and teaching people how to talk to strangers.</p>
             <p style="margin-bottom:14px;">After the last rotation: exec team debrief, catching ranking inflation, adjusting for recency bias, making final calls on people's futures in the chapter.</p>
-            <p>Over two years, that's <strong style="color:#8AA080;">200+ conversations</strong>, tracked, evaluated, and acted on. Pattern recognition and rapid-fire decision-making under pressure, at scale.</p>
+            <p>Over two years, that's <strong style="color:#c2e0b4;">200+ conversations</strong>, tracked, evaluated, and acted on. Pattern recognition and rapid-fire decision-making under pressure, at scale.</p>
           </div>
         </div>
         <div class="rec-stat-col">
